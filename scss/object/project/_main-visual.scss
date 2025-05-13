@@ -1,0 +1,280 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+.p-main-visual {
+  padding: 35px 27px 0 24px;
+  margin-bottom: 50px;
+  z-index: 10;
+  position: relative;
+  @include tab {
+    padding: 30px 0 20px 60px;
+  }
+  @include pc {
+    padding: 58px 0 20px 96px;
+  }
+  &__title {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: calc(30 / 25);
+    letter-spacing: -0.13em;
+    @include tab {
+      font-size: 30px;
+      line-height: 1.12;
+      margin-bottom: 17px;
+    }
+    @include tab-l {
+      font-size: 36px;
+    }
+    @include pc {
+      font-weight: 400;
+      font-size: 55px;
+      line-height: 76px;
+      letter-spacing: -0.07em;
+      padding-left: 18px;
+    }
+    @include pc-l {
+      font-size: 5.5rem;
+    }
+  }
+  &__text {
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: calc(21 / 15);
+    letter-spacing: -0.1em;
+    margin-bottom: 66px;
+    @include tab {
+      font-size: 16px;
+      line-height: 1.85;
+      margin-bottom: 14px;
+      letter-spacing: -0.06em;
+    }
+    @include tab-l {
+      font-size: 20px;
+    }
+    @include pc {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 37px;
+      padding-left: 26px;
+    }
+    @include pc-l {
+      font-size: 2rem;
+    }
+  }
+  &__type {
+    @include tab {
+      display: none;
+    }
+    @include tab-l {
+      display: block;
+      max-height: 800px;
+      overflow-y: auto;
+      font-family: "Fira Code", monospace;
+      font-size: 20px;
+      line-height: 19px;
+      background: linear-gradient(
+        180deg,
+        rgba(80, 117, 187, 0) 0%,
+        rgba(80, 117, 187, 0.2) 20%,
+        rgba(80, 117, 187, 0.5) 50%,
+        rgba(80, 117, 187, 0.2) 70%,
+        rgba(80, 117, 187, 0) 100%
+      );
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 20px;
+      white-space: pre-wrap;
+      position: absolute;
+      top: 60%;
+      left: 85%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      border-radius: 8px;
+      padding: 20px;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 1em;
+        background-color: #f1f1f1;
+        animation: blinking 1s infinite;
+        position: absolute;
+        top: 20px;
+        left: calc(20px + 0.5ch * var(--cursor-pos, 0));
+      }
+    }
+  }
+  &__skill-pc {
+    display: none;
+    @include tab {
+      display: none;
+    }
+    @include pc {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 55%;
+      width: 460px;
+      max-width: 100%;
+      height: auto;
+      z-index: 10;
+    }
+    @include pc-l {
+      width: 46rem;
+    }
+  }
+  &__skill-tablet {
+    display: none;
+    @include tab {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 55%;
+      width: 46rem;
+      max-width: 100%;
+      height: auto;
+      z-index: 10;
+    }
+    @include pc {
+      display: none;
+    }
+  }
+  &__skill-sp {
+    display: block;
+    position: absolute;
+    top: 55%;
+    left: 60%;
+    width: 80px;
+    z-index: 10;
+    @include tab {
+      display: none;
+    }
+    @include pc {
+      display: none;
+    }
+  }
+  &__pc-background {
+    position: absolute;
+    bottom: -5%;
+    left: 62%;
+    width: 80%;
+    z-index: 5;
+    @include tab {
+      display: none;
+    }
+  }
+  &__skill-img {
+    width: 100%;
+    display: block;
+    @include tab {
+      width: 100%;
+      height: auto;
+    }
+    @include pc {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 15px;
+    z-index: -1;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    animation: blink 1s infinite;
+    overflow: hidden;
+    @include tab {
+      top: 6%;
+      left: 12%;
+      width: 76%;
+      height: 93%;
+      overflow: hidden;
+      z-index: 1;
+      animation: blink 3s infinite;
+    }
+    @include pc {
+      top: 6%;
+      left: 12%;
+      width: 76%;
+      height: 93%;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+  }
+  &__price {
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: calc(20 / 16);
+    letter-spacing: -0.16em;
+    color: $color-blue;
+    @include tab {
+      font-size: 14px;
+      line-height: 1.6;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+    @include tab-l {
+      font-size: 18px;
+    }
+    @include pc {
+      font-size: 24px;
+      padding-left: 32px;
+    }
+    @include pc-l {
+      font-size: 32px;
+    }
+  }
+  &__price span {
+    font-size: 20px;
+    @include tab {
+      font-size: 22px;
+      line-height: 1;
+      letter-spacing: -0.1em;
+    }
+    @include tab-l {
+      font-size: 24px;
+    }
+    @include pc {
+      font-size: 30px;
+    }
+    @include pc-l {
+      font-size: 3rem;
+    }
+  }
+  &__contact {
+    font-family: DNP ShueiGoGinStd;
+    font-size: 10px;
+    line-height: calc(40 / 10);
+    letter-spacing: 0.04em;
+    @include tab {
+      font-size: 18px;
+      line-height: calc(40 / 18);
+      letter-spacing: -0.02em;
+    }
+    @include pc {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 40px;
+      padding-left: 32px;
+    }
+  }
+  &__pc-background {
+    @include pc {
+      display: none;
+    }
+  }
+  &__pc-background::after {
+    content: "";
+    position: absolute;
+    top: 7%;
+    right: 55%;
+    width: 100px;
+    height: 144px;
+    background-color: #ffffff;
+  }
+}

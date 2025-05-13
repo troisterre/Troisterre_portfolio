@@ -1,0 +1,135 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+.c-balloon {
+  margin-top: 12px;
+  @include tab {
+    margin-top: 50px;
+  }
+  @include pc {
+    margin: 18px;
+  }
+  &__list {
+    @include tab {
+      margin-bottom: 50px;
+    }
+  }
+  &__list:last-child {
+    margin-bottom: 0;
+  }
+  &__img-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    @include tab {
+      max-width: 600px;
+      width: 70%;
+    }
+    @include pc {
+      width: 77%;
+    }
+  }
+  &__img-wrapper-rev {
+    @extend .c-balloon__img-wrapper;
+  }
+  &__img-bg {
+    width: 100%;
+    height: 130px;
+    display: block;
+    @include tab {
+      height: 200px;
+    }
+  }
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 13px 20px 26px;
+    width: 100%;
+    box-sizing: border-box;
+    @include tab {
+      padding: 25px 30px;
+    }
+    @include tab-l {
+      padding: 25px 62px;
+    }
+  }
+  &__content-rev {
+    @extend .c-balloon__content;
+    padding: 20px 26px 20px 13px;
+    @include tab {
+      padding: 25px 30px;
+    }
+    @include tab-l {
+      padding: 25px 62px;
+    }
+  }
+  &__number {
+    color: $color-blue;
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 2;
+    text-align: center;
+    letter-spacing: -0.042em;
+    @include tab {
+      color: $color-white;
+      transform: translate(-15%);
+      background-color: $color-blue;
+      width: 154px;
+      height: 154px;
+      border-radius: 50%;
+      font-family: DNP ShueiGoGinStd;
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      z-index: -2;
+    }
+  }
+  &__number-reverse {
+    @extend .c-balloon__number;
+    @include tab {
+      transform: translate(10%);
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: $color-blue;
+    margin-bottom: 5px;
+    text-align: center;
+    @include tab {
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 0.012em;
+      margin-bottom: 7px;
+      text-align: left;
+    }
+    @include tab-l {
+      font-size: 22px;
+    }
+    @include pc-l {
+      font-size: 25px;
+    }
+  }
+  &__text {
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    letter-spacing: -0.08em;
+    text-align: left;
+    @include tab {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.5;
+      letter-spacing: -0.016em;
+    }
+    @include pc-l {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+.c-works {
+  display: none;
+  @include tab {
+    display: block;
+    margin: 20px 0 0 0;
+  }
+  @include pc {
+    display: block;
+    margin: 1.51rem 0 0 0;
+  }
+  &__cat-list {
+    width: 10.8rem;
+    height: 2.8rem;
+    gap: 1rem;
+    border-radius: 3px;
+    border: 1px solid $color-blue;
+    padding: 1rem;
+    font-family: Noto Sans;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__cat-title {
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 500;
+    font-size: 2.2rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+    @include tab {
+      font-size: 22px;
+      line-height: calc(44 / 22);
+      letter-spacing: -0.024em;
+    }
+  }
+}
+.swiper-container {
+  position: relative;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0%;
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  border-radius: 1px;
+  background-color: $color-blue;
+  @include tab {
+    width: 30px;
+    height: 40px;
+  }
+  @include pc {
+    top: -65%;
+    width: 3rem;
+    height: 4rem;
+    color: transparent;
+    border-radius: 1px;
+    background-color: $color-blue;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+  }
+}
+.swiper-button-next::after {
+  right: -120%;
+  clip-path: polygon(0 0, 70% 50%, 0 100%);
+  @include tab {
+    right: -170%;
+  }
+}
+.swiper-button-prev::after {
+  left: -200%;
+  clip-path: polygon(0 0, 70% 50%, 0 100%);
+  transform: rotate(180deg);
+  @include tab {
+    left: -250%;
+  }
+}

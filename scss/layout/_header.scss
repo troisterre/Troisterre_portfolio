@@ -1,0 +1,134 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+@use "../object/utility/text" as *;
+@use "../object/utility/flex" as *;
+.l-header {
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  padding: 12px 13px 12px 13px;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  @include tab {
+    padding: 30px;
+  }
+  @include pc {
+    padding: 36px 45px;
+  }
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* 白＋透明感 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影をつけると見やすい */
+  }
+  &__wrapper {
+    @include pc {
+      padding: 3.6rem 4.5rem 0 4.5rem;
+    }
+  }
+  &__nav-list {
+    @include pc {
+      gap: 3rem;
+    }
+  }
+  &__nav-link {
+    font-size: 20px;
+    font-weight: 500;
+    color: $color-black;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    @include pc-l {
+      font-size: 2rem;
+    }
+    &:hover {
+      color: $color-blue;
+      transform: translateY(-2px);
+    }
+  }
+  &__title {
+    line-height: 1;
+  }
+  &__title-name {
+    @extend .u-uppercase;
+    font-size: 12px;
+    @include tab {
+      font-size: 20px;
+    }
+    @include tab-l {
+      font-size: 24px;
+    }
+    @include pc {
+      font-size: 30px;
+    }
+    @include pc-l {
+      font-size: 32px;
+    }
+  }
+  &__title-small {
+    font-size: 9px;
+    @include tab {
+      font-size: 18px;
+    }
+    @include tab-l {
+      font-size: 20px;
+    }
+    @include pc {
+      font-size: 24px;
+    }
+    @include pc-l {
+      font-size: 30px;
+    }
+  }
+  &__title-second {
+    margin-top: 0.5rem;
+    @include tab {
+      margin-top: 0;
+      font-size: 24px;
+    }
+    @include pc {
+      font-size: 32px;
+    }
+  }
+  &__title-link {
+    text-decoration: none;
+    color: inherit;
+    @include tab {
+      gap: 5px;
+    }
+  }
+  &__title-link:hover {
+    opacity: 0.8;
+  }
+  &__title-bottom {
+    font-size: 10px;
+    color: $color-black;
+    position: relative;
+    display: inline-block;
+    @include tab {
+      font-size: 14px;
+      padding-left: 60px;
+    }
+    @include tab-l {
+      font-size: 16px;
+    }
+    @include pc {
+      padding-left: 75px;
+      font-size: 20px;
+    }
+    @include pc-l {
+      font-size: 2rem;
+    }
+    &::before {
+      content: "";
+      @include tab {
+        position: absolute;
+        display: block;
+        bottom: 0;
+        left: 0;
+        width: 55px;
+        height: 1px;
+        background-color: $color-black;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

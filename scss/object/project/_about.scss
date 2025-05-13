@@ -1,0 +1,120 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+.p-about {
+  &__contents {
+    margin: 22px auto 0 auto;
+    gap: 14px;
+    @include tab {
+      background-color: $color-lightblue;
+      border-radius: 15px;
+      height: 500px;
+      padding: 25px 30px;
+      margin-top: 12px;
+    }
+    @include tab-l {
+      padding: 50px 30px;
+    }
+    @include pc {
+      margin: 1.2rem 0 0;
+      gap: 45px;
+    }
+    @include pc-l {
+      gap: 79px;
+    }
+  }
+  &__right {
+    width: 100%;
+    @include pc {
+      width: 53%;
+    }
+  }
+  &__left {
+    margin: 0 auto;
+    @include pc {
+      width: 37.4%;
+    }
+  }
+  &__right img {
+    width: 100%;
+    display: block;
+  }
+  &__name {
+    color: $color-blue;
+    font-family: Ten Mincho Text;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: -0.011em;
+    margin-bottom: 10px;
+    text-align: center;
+    @include tab {
+      font-size: 20px;
+      line-height: calc(44 / 30);
+      letter-spacing: -0.04em;
+      text-align: left;
+      margin-bottom: 21px;
+    }
+    @include tab-l {
+      font-size: 24px;
+    }
+    @include pc {
+      font-size: 30px;
+    }
+    @include pc-l {
+      font-size: 3rem;
+    }
+  }
+  &__text {
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: calc(20 / 14);
+    letter-spacing: -0.01em;
+    margin-bottom: 11px;
+    @include tab {
+      font-size: 16px;
+      line-height: 1.42;
+      color: $color-black;
+      margin-bottom: 20px;
+    }
+    @include tab-l {
+      font-size: 18px;
+    }
+  }
+  &__sub-title {
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: calc(23 / 14);
+    letter-spacing: -0.019em;
+    @include tab {
+      margin-bottom: 0.5rem;
+      font-size: 20px;
+      line-height: 1.84;
+      letter-spacing: -0.1em;
+    }
+    @include tab-l {
+      font-size: 25px;
+    }
+  }
+  &__skill-cat {
+    border-radius: 3px;
+    gap: 10px;
+    padding: 10px;
+    background-color: $color-blue;
+    color: #ffffff;
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
+    @include pc {
+      font-size: 18px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      background-color: $color-blue;
+      color: $color-white;
+      padding: 10px 20px;
+      border-radius: 3px;
+    }
+  }
+}

@@ -1,0 +1,191 @@
+@use "../../global/mixin" as *;
+.u-flex {
+  display: flex;
+  align-items: center;
+  // flex-direction
+  &__row {
+    flex-direction: row;
+  }
+  &__column {
+    flex-direction: column;
+  }
+  &__row-reverse {
+    flex-direction: row-reverse;
+  }
+  &__column-reverse {
+    flex-direction: column-reverse;
+  }
+  // justify-content (main axis)
+  &__justify-start {
+    justify-content: flex-start;
+  }
+  &__justify-center {
+    justify-content: center;
+  }
+  &__justify-end {
+    justify-content: flex-end;
+  }
+  &__justify-between {
+    justify-content: space-between;
+  }
+  &__justify-around {
+    justify-content: space-around;
+  }
+  // align-items (cross axis)
+  &__align-start {
+    align-items: flex-start;
+  }
+  &__align-center {
+    align-items: center;
+  }
+  &__align-end {
+    align-items: flex-end;
+  }
+  &__align-stretch {
+    align-items: stretch;
+  }
+  // wrap
+  &__wrap {
+    flex-wrap: wrap;
+  }
+  &__nowrap {
+    flex-wrap: nowrap;
+  }
+  //中央寄せ用//
+  &__center {
+    @extend .u-flex;
+    @extend .u-flex__justify-center;
+    @extend .u-flex__align-center;
+  }
+  &__balloon {
+    @extend .u-flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    @include tab {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  &__balloon-reverse {
+    @extend .u-flex__balloon;
+    @include tab {
+      flex-direction: row-reverse;
+      justify-content: center;
+    }
+  }
+  &__center-reverse {
+    @extend .u-flex;
+    flex-direction: row-reverse;
+  }
+  &__between {
+    @extend .u-flex;
+    justify-content: space-between;
+    align-items: center;
+    @include pc {
+      align-items: flex-start;
+    }
+  }
+  &__slide-cat {
+    @extend .u-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include tab {
+      gap: 10px;
+    }
+    @include pc {
+      gap: 10px;
+    }
+  }
+  &__skill {
+    @extend .u-flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    @include tab {
+      flex-wrap: wrap;
+    }
+  }
+  &__flow {
+    @extend .u-flex;
+    flex-direction: column;
+    align-items: start;
+    @include tab {
+      flex-direction: row;
+      align-items: start;
+    }
+  }
+  &__flow-subtitle {
+    @extend .u-flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include tab {
+      flex-direction: column;
+    }
+  }
+  &__column {
+    @extend .u-flex;
+    flex-direction: column-reverse;
+    align-items: start;
+    @include pc {
+      flex-direction: column;
+    }
+  }
+  &__about {
+    @extend .u-flex;
+    flex-direction: column;
+    align-items: center;
+    @include tab {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  &__contact {
+    @extend .u-flex;
+    flex-direction: column;
+    align-items: start;
+    @include tab {
+      flex-direction: row;
+    }
+  }
+  &__label {
+    @extend .u-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    @include tab {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+  &__column-reverse {
+    @extend .u-flex;
+    flex-direction: column-reverse;
+    @include pc {
+      flex-direction: column;
+    }
+  }
+
+  &__header {
+    @extend .u-flex;
+    @extend .u-flex__justify-between;
+    @extend .u-flex__align-center;
+  }
+  &__header-title {
+    @extend .u-flex;
+    @extend .u-flex__align-start;
+    @extend .u-flex__column-reverse;
+    @include tab {
+      flex-direction: column;
+    }
+  }
+  &__header-title-name {
+    @extend .u-flex;
+    @extend .u-flex__row;
+    align-items: first baseline;
+    gap: 5px;
+    @include tab {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+}

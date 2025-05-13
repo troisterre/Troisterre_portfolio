@@ -1,0 +1,35 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+.l-main-visual {
+  position: relative;
+  padding-top: 60px;
+  width: 100%;
+  overflow: hidden;
+  @include tab {
+    padding-top: 129px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    background: #e6f7ff;
+    width: 423px;
+    height: 423px;
+    border-radius: 50%;
+    top: -75px;
+    left: -90px;
+    @include tab {
+      width: 900px;
+      height: 900px;
+      top: -66%;
+      left: 26%;
+      background: linear-gradient(180deg, #c9edff 0%, #d7f2ff 24.68%, #e6f7ff 100%);
+    }
+    @include pc {
+      width: 120.9rem;
+      height: 120.9rem;
+      top: -110%;
+      left: 19%;
+      background: linear-gradient(180deg, #c9edff 0%, #d7f2ff 24.68%, #e6f7ff 100%);
+    }
+  }
+}

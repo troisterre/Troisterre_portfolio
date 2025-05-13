@@ -1,0 +1,151 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+.p-flow {
+  &__contents {
+    margin: 14px 0 0 0;
+    position: relative;
+    @include tab {
+      margin: 80px auto 0 auto;
+      padding-left: 15px;
+    }
+  }
+  &__item {
+    gap: 8px;
+    position: relative;
+    border-left: 2px solid $color-blue;
+    margin: 0 0 3px 10px;
+    @include tab {
+      padding: 0 0 1rem 0;
+      border-left: 2px solid $color-blue;
+      margin: 0;
+    }
+  }
+  &__item:last-child {
+    border-left: none;
+  }
+  &__item::after {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 100%;
+    margin-top: -6px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid $color-blue; /* 下向き矢印 */
+    @include tab {
+      display: none;
+    }
+  }
+  &__item:last-child .p-flow__item-title {
+    margin-bottom: 0;
+    align-items: baseline;
+    @include tab {
+      align-items: center;
+    }
+  }
+  &__item:last-child::after {
+    display: none;
+  }
+  &__item-title {
+    margin: 0 0 0 -10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(22 / 16);
+    border-radius: 25px;
+    padding: 1px 18px;
+    color: white;
+    background-color: $color-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include tab {
+      width: 210px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1;
+      background-color: #fff;
+      letter-spacing: -0.1em;
+      color: $color-blue;
+      display: flex;
+      padding: 1px 18px 0 18px;
+      justify-content: flex-start;
+      align-items: first baseline;
+      margin-bottom: 10rem;
+      position: relative;
+      margin-left: -26px;
+    }
+    @include pc {
+      width: 260px;
+      font-size: 22px;
+      margin-left: -28px;
+    }
+    @include pc-l {
+      font-size: 24px;
+    }
+  }
+  &__item-title::before {
+    display: none;
+    @include tab {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-color: $color-blue;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    @include pc {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__item-last-list {
+    @extend .p-flow__item-title;
+    color: #fff;
+    @include tab {
+      color: $color-blue;
+      margin: 0 0 0 -3px;
+    }
+  }
+  &__item-last-list::before {
+    display: none;
+  }
+  &__item-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: calc(19 / 14);
+    padding: 9px 0 45px 10px;
+    @include tab {
+      width: 76.4%;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: calc(30 / 20);
+      letter-spacing: -0.01em;
+      color: $color-black;
+      background-color: $color-lightblue;
+      padding: 10px 14px;
+    }
+  }
+  &__item-subtitle {
+    color: #fff;
+    font-size: 10px;
+    @include tab {
+      font-size: 16px;
+      line-height: 1.36;
+      color: $color-blue;
+      margin-left: -40px;
+    }
+    @include pc {
+      margin-left: -90px;
+    }
+  }
+  &__link {
+    text-decoration: underline;
+    color: blue;
+  }
+  &__link:hover {
+    opacity: 0.8;
+  }
+}

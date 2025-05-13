@@ -1,0 +1,119 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-blue;
+  color: $color-white;
+  cursor: pointer;
+  border-radius: 38px;
+  @include pc {
+    border-radius: 100px;
+    gap: 10px;
+  }
+
+  &__icon {
+    position: relative;
+    background-color: $color-white;
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    margin-right: 8px;
+    @include tab {
+      width: 30px;
+      height: 30px;
+    }
+    @include pc {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+  &__icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 5px solid $color-blue;
+    @include tab {
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 8px solid $color-blue;
+    }
+    @include pc {
+      border-top: 0.6rem solid transparent;
+      border-bottom: 0.6rem solid transparent;
+      border-left: 0.8rem solid $color-blue;
+    }
+  }
+  &__text {
+    display: inline-flex;
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1s;
+    letter-spacing: -0.05em;
+    @include tab {
+      font-size: 24px;
+      letter-spacing: -0.12em;
+    }
+    @include pc {
+      font-size: 2.4rem;
+    }
+  }
+  &__mv {
+    @extend .c-button;
+    width: 174px;
+    height: 34px;
+    @include tab {
+      width: 250px;
+      padding: 10px;
+      height: 50px;
+    }
+    @include tab-l {
+      width: 350px;
+    }
+    @include pc {
+      width: 400px;
+      height: 68px;
+    }
+    @include pc-l {
+      width: 40rem;
+      height: 6.8rem;
+    }
+  }
+
+  &__price {
+    @extend .c-button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 174px;
+    height: 34px;
+    margin: 7px auto 22px auto;
+    @include tab {
+      width: 291px;
+      height: 68px;
+      margin: 0 auto;
+    }
+  }
+  &__contact {
+    @extend .c-button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 174px;
+    height: 34px;
+    @include tab {
+      width: 291px;
+      height: 68px;
+      margin: 15px auto 30px auto;
+    }
+  }
+}

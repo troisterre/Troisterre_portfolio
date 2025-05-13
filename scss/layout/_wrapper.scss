@@ -1,0 +1,98 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+.l-wrapper {
+  width: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+  @include tab {
+    margin: 100px auto;
+    padding: 0 60px;
+  }
+  &__important {
+    @extend .l-wrapper;
+    margin: 75px 0 40px;
+    overflow: visible;
+    @include tab {
+      margin: 100px auto 50px;
+    }
+    @include pc {
+      width: 60%;
+      padding: 0;
+      overflow: visible;
+    }
+  }
+
+  &__works {
+    @extend .l-wrapper;
+    margin: 100px auto;
+    padding: 0 82px;
+    @include pc {
+      width: 53.8%;
+      padding: 0;
+      margin: 0 auto 200px auto;
+    }
+  }
+  &__about {
+    @extend .l-wrapper;
+    margin: 0 auto 86px auto;
+    padding: 0 59px;
+    @include pc {
+      margin: 0 auto;
+      width: 74.3%;
+      max-width: 1000px;
+    }
+  }
+  &__price {
+    @extend .l-wrapper;
+    padding: 0 40px;
+    margin: 0 auto 80px auto;
+    @include tab {
+      max-width: 600px;
+      width: 70%;
+      margin: 100px auto;
+      padding: 0;
+    }
+    @include pc {
+      margin: 8rem auto;
+      width: 42%;
+      max-width: 700px;
+    }
+  }
+
+  &__flow {
+    width: 100%;
+    margin: 0 auto 93px auto;
+    padding: 0 20px;
+    @include tab {
+      margin: 0 auto 100px auto;
+      width: 89%;
+      max-width: 700px;
+    }
+    @include pc {
+      max-width: 890px;
+      width: 65%;
+      margin: 0 auto 180px auto;
+    }
+  }
+
+  &__contact {
+    @extend .l-wrapper;
+    background-color: #f2f4f5;
+    border-radius: 25px 25px 0 0;
+    padding: 16px 38px 50px 38px;
+    @include tab {
+      width: 82%;
+      max-width: 700px;
+      padding: 52px 12px;
+    }
+    @include tab-l {
+      padding: 52px 34px;
+    }
+    @include pc {
+      width: 64.5%;
+      max-width: 881px;
+      padding: 52px 50px 18px 50px;
+      border-radius: 0;
+    }
+  }
+}

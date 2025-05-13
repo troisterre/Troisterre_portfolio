@@ -1,0 +1,17 @@
+@use "../../global/_variable.scss" as *;
+@use "../../global/_mixin.scss" as *;
+.p-works .swiper-container {
+  margin-top: 30px;
+  @include tab {
+    margin-top: 60px;
+  }
+}
+.p-works .swiper-wrapper {
+  @include tab {
+    width: 100%;
+    max-width: 700px;
+  }
+  @include pc {
+    max-width: 850px;
+  }
+}

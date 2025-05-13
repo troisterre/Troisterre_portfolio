@@ -1,0 +1,58 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+.c-title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  text-align: center;
+  @include tab {
+    font-size: 35px;
+    line-height: 1.13;
+    text-align: left;
+  }
+  @include pc {
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 1.12;
+    letter-spacing: -1%;
+    text-align: center;
+  }
+  &__important {
+    @extend .c-title;
+    text-align: center;
+    @include tab {
+      text-align: left;
+      margin-left: 22px;
+    }
+  }
+  &__works {
+    @extend .c-title;
+    @include tab {
+      text-align: center;
+    }
+  }
+  &__about {
+    @extend .c-title;
+    text-align: left;
+    margin-left: 12px;
+  }
+  &__price {
+    @extend .c-title;
+    @include tab {
+      text-align: center;
+    }
+  }
+  &__flow {
+    @extend .c-title;
+    @include tab {
+      text-align: center;
+    }
+  }
+  &__contact {
+    text-align: center;
+    @extend .c-title;
+    @include tab {
+    }
+  }
+}

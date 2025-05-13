@@ -1,0 +1,37 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+.c-bar {
+  &__close {
+    cursor: pointer;
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    @include pc {
+      display: none;
+    }
+  }
+  &__cross {
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 3px;
+    transform: rotate(45deg);
+    background-color: $color-blue;
+    display: block;
+  }
+  &__cross::before {
+    content: "";
+    width: 20px;
+    height: 3px;
+    background-color: $color-blue;
+    display: block;
+    transform: rotate(90deg);
+  }
+  &__cross-bg {
+    @extend.c-bar__cross;
+    top: 5%;
+    right: 10%;
+    color: $color-black;
+  }
+}
