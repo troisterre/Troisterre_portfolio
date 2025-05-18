@@ -3,27 +3,29 @@
 .c-title {
   font-weight: 400;
   font-size: 20px;
-  line-height: 1.12;
+  line-height: calc(23 / 20);
   letter-spacing: -0.03em;
   text-align: center;
   @include tab {
-    font-size: 35px;
+    font-size: 35vw;
     line-height: 1.13;
     text-align: left;
   }
   @include pc {
     font-weight: 400;
-    font-size: 35px;
-    line-height: 1.12;
-    letter-spacing: -1%;
+    font-size: 3.5rem;
+    line-height: calc(51 / 35);
+    letter-spacing: -0.01em;
     text-align: center;
   }
   &__important {
     @extend .c-title;
-    text-align: center;
-    @include tab {
+
+    margin-bottom: 12px;
+    @include pc {
       text-align: left;
-      margin-left: 22px;
+      margin-left: 3rem;
+      margin-bottom: 1.8rem;
     }
   }
   &__works {
@@ -34,14 +36,13 @@
   }
   &__about {
     @extend .c-title;
-    text-align: left;
-    margin-left: 12px;
+    @include tab {
+      text-align: left;
+      margin-left: 3.1rem;
+    }
   }
   &__price {
     @extend .c-title;
-    @include tab {
-      text-align: center;
-    }
   }
   &__flow {
     @extend .c-title;
@@ -51,6 +52,7 @@
   }
   &__contact {
     text-align: center;
+    line-height: calc(30 / 20);
     @extend .c-title;
     @include tab {
     }

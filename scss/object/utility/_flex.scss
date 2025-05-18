@@ -89,9 +89,8 @@
     @extend .u-flex;
     justify-content: flex-start;
     align-items: flex-start;
-    @include tab {
-      gap: 10px;
-    }
+    flex-wrap: wrap;
+    gap: 10px;
     @include pc {
       gap: 10px;
     }
@@ -120,14 +119,6 @@
     justify-content: flex-start;
     align-items: center;
     @include tab {
-      flex-direction: column;
-    }
-  }
-  &__column {
-    @extend .u-flex;
-    flex-direction: column-reverse;
-    align-items: start;
-    @include pc {
       flex-direction: column;
     }
   }
@@ -168,7 +159,7 @@
   &__header {
     @extend .u-flex;
     @extend .u-flex__justify-between;
-    @extend .u-flex__align-center;
+    align-items: first baseline;
   }
   &__header-title {
     @extend .u-flex;

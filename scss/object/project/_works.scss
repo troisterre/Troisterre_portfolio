@@ -1,7 +1,7 @@
 @use "../../global/_variable.scss" as *;
 @use "../../global/_mixin.scss" as *;
 .p-works .swiper-container {
-  margin-top: 30px;
+  margin-top: 20px;
   @include tab {
     margin-top: 60px;
   }

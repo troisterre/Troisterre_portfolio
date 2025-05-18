@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".l-header");
-  if (window.scrollY > 600) {
-    // 600pxスクロールで発動
+  if (window.scrollY > 50) {
+    // 50pxスクロールで発動
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");

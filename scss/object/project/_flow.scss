@@ -2,24 +2,26 @@
 @use "../../global/mixin" as *;
 .p-flow {
   &__contents {
-    margin: 14px 0 0 0;
+    margin: 14rem 0 0 0;
     position: relative;
     @include tab {
-      margin: 80px auto 0 auto;
-      padding-left: 15px;
+      margin: 8rem 0 0 0;
+      padding-left: 1.8rem;
     }
   }
   &__item {
-    gap: 8px;
+    gap: 9rem;
     position: relative;
     border-left: 2px solid $color-blue;
-    margin: 0 0 3px 10px;
+    margin: 0 0 3rem 10rem;
     @include tab {
-      padding: 0 0 1rem 0;
+      gap: 1rem;
+      padding: 0;
       border-left: 2px solid $color-blue;
-      margin: 0;
+      margin: -1rem 0 0 0;
     }
   }
+
   &__item:last-child {
     border-left: none;
   }
@@ -28,7 +30,7 @@
     position: absolute;
     left: -7px;
     top: 100%;
-    margin-top: -6px;
+    margin-top: -6rem;
     width: 0;
     height: 0;
     border-left: 6px solid transparent;
@@ -37,6 +39,16 @@
     @include tab {
       display: none;
     }
+  }
+  &__item:first-child:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -0.3rem;
+    width: 1rem;
+    height: 0.7rem; // ← 必要に応じて調整
+    background-color: #fff; // 背景と同じ色にすることで、線を“隠す”
+    z-index: 2;
   }
   &__item:last-child .p-flow__item-title {
     margin-bottom: 0;
@@ -49,40 +61,45 @@
     display: none;
   }
   &__item-title {
-    margin: 0 0 0 -10px;
+    position: relative;
+    margin: 0 0 0 -10rem;
     font-weight: 400;
-    font-size: 16px;
-    line-height: calc(22 / 16);
+    font-size: 16rem;
+    line-height: calc(24 / 16);
     border-radius: 25px;
-    padding: 1px 18px;
+    padding: 1rem 18.5rem;
+    letter-spacing: -0.01em;
     color: white;
     background-color: $color-blue;
     display: flex;
     justify-content: center;
     align-items: center;
     @include tab {
-      width: 210px;
+      width: 23rem;
       font-weight: 400;
-      font-size: 20px;
-      line-height: 1;
+      font-size: 2.4rem;
+      line-height: calc(35 / 24);
       background-color: #fff;
       letter-spacing: -0.1em;
       color: $color-blue;
       display: flex;
-      padding: 1px 18px 0 18px;
+      padding: 0 0 0 1.8rem;
       justify-content: flex-start;
       align-items: first baseline;
-      margin-bottom: 10rem;
+      margin: 0 0 10rem 0;
       position: relative;
-      margin-left: -26px;
     }
-    @include pc {
-      width: 260px;
-      font-size: 22px;
-      margin-left: -28px;
+  }
+  &__item:last-child .p-flow__item-title {
+    padding: 0 0 0 10rem;
+    @include tab {
+      width: 21rem;
+      padding: 0 0 0 0.5rem;
     }
-    @include pc-l {
-      font-size: 24px;
+  }
+  &__item:nth-child(5) .p-flow__item-title {
+    @include tab {
+      letter-spacing: 0;
     }
   }
   &__item-title::before {
@@ -90,33 +107,59 @@
     @include tab {
       content: "";
       display: block;
-      width: 16px;
-      height: 16px;
+      width: 2rem;
+      height: 2rem;
       background-color: $color-blue;
       border-radius: 50%;
       flex-shrink: 0;
-    }
-    @include pc {
-      width: 20px;
-      height: 20px;
+      margin: 0.7rem 0 0 -2.9rem;
     }
   }
+  &__item:last-child .p-flow__item-title::before {
+    margin: 0.2rem 0 0 -2.9rem;
+  }
   &__item-last-list {
-    @extend .p-flow__item-title;
+    position: relative;
+    margin: 0 0 0 -10rem;
+    font-weight: 400;
+    font-size: 16rem;
+    line-height: calc(24 / 16);
+    border-radius: 25px;
+    padding: 1rem 18.5rem;
+    letter-spacing: -0.01em;
+    color: white;
+    background-color: $color-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
     @include tab {
       color: $color-blue;
       margin: 0 0 0 -3px;
+      width: 23rem;
+      font-weight: 400;
+      font-size: 2.4rem;
+      line-height: calc(35 / 24);
+      background-color: #fff;
+      letter-spacing: -0.1em;
+      color: $color-blue;
+      display: flex;
+      padding: 0 0 0 1.8rem;
+      justify-content: flex-start;
+      align-items: first baseline;
+      position: relative;
     }
   }
   &__item-last-list::before {
     display: none;
   }
   &__item-text {
+    font-family: DNP ShueiGoGinStd;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 14rem;
     line-height: calc(19 / 14);
-    padding: 9px 0 45px 10px;
+    padding: 9rem 0 45rem 10rem;
+    letter-spacing: -0.09em;
     @include tab {
       width: 76.4%;
       font-weight: 400;
@@ -128,17 +171,30 @@
       padding: 10px 14px;
     }
   }
-  &__item-subtitle {
-    color: #fff;
-    font-size: 10px;
+  &__item:last-child .p-flow__item-text {
+    padding: 9rem 0 0 10rem;
     @include tab {
-      font-size: 16px;
+      padding: 1rem 1.4rem;
+    }
+  }
+  &__item-subtitle-sp {
+    color: #fff;
+    margin-left: -1.8rem;
+    font-size: 10rem;
+    @include tab {
+      display: none;
+    }
+  }
+  &__item-subtitle-pc {
+    display: none;
+    @include tab {
+      display: block;
+      color: #fff;
+      font-size: 1.6rem;
       line-height: 1.36;
       color: $color-blue;
-      margin-left: -40px;
-    }
-    @include pc {
-      margin-left: -90px;
+      margin-left: -9rem;
+      transform: translateX(-0.5rem);
     }
   }
   &__link {

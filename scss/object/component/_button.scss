@@ -7,26 +7,27 @@
   background-color: $color-blue;
   color: $color-white;
   cursor: pointer;
-  border-radius: 38px;
+  border-radius: 38rem;
   @include pc {
     border-radius: 100px;
-    gap: 10px;
+    gap: 1rem;
   }
 
   &__icon {
     position: relative;
     background-color: $color-white;
     border-radius: 50%;
-    width: 11px;
-    height: 11px;
-    margin-right: 8px;
+    width: 11rem;
+    height: 11rem;
+    margin-right: 8rem;
     @include tab {
-      width: 30px;
-      height: 30px;
+      width: 3rem;
+      height: 3rem;
     }
     @include pc {
       width: 3rem;
       height: 3rem;
+      margin-right: 0.8rem;
     }
   }
   &__icon::before {
@@ -55,34 +56,25 @@
     display: inline-flex;
     font-family: DNP ShueiGoGinStd;
     font-weight: 500;
-    font-size: 15px;
-    line-height: 1s;
+    font-size: 15rem;
+    line-height: 1;
     letter-spacing: -0.05em;
     @include tab {
-      font-size: 24px;
+      font-size: 2.4rem;
       letter-spacing: -0.12em;
     }
     @include pc {
       font-size: 2.4rem;
+      line-height: calc(48 / 24);
+      letter-spacing: -0.05em;
     }
   }
   &__mv {
     @extend .c-button;
-    width: 174px;
-    height: 34px;
-    @include tab {
-      width: 250px;
-      padding: 10px;
-      height: 50px;
-    }
-    @include tab-l {
-      width: 350px;
-    }
+    width: 174rem;
+    height: 34rem;
+
     @include pc {
-      width: 400px;
-      height: 68px;
-    }
-    @include pc-l {
       width: 40rem;
       height: 6.8rem;
     }
@@ -93,12 +85,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 174px;
-    height: 34px;
-    margin: 7px auto 22px auto;
+    width: 174rem;
+    height: 34rem;
+    margin: 7rem auto 22rem auto;
     @include tab {
-      width: 291px;
-      height: 68px;
+      width: 29.1rem;
+      height: 6.8rem;
       margin: 0 auto;
     }
   }
@@ -108,12 +100,12 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 174px;
-    height: 34px;
+    width: 174rem;
+    height: 34rem;
     @include tab {
-      width: 291px;
-      height: 68px;
-      margin: 15px auto 30px auto;
+      width: 29.1rem;
+      height: 6.8rem;
+      margin: 1.5rem auto 3rem auto;
     }
   }
 }

@@ -2,21 +2,22 @@
 @use "../global/mixin" as *;
 .l-wrapper {
   width: 100%;
-  padding: 0 30px;
-  margin: 0 auto;
+  padding: 0 30rem;
+  margin: 80px auto;
   @include tab {
-    margin: 100px auto;
-    padding: 0 60px;
+    margin: 90vw auto;
+    padding: 0 6rem;
+  }
+  @include tab {
+    margin: 18rem auto;
+    padding: 0 6rem;
   }
   &__important {
     @extend .l-wrapper;
-    margin: 75px 0 40px;
-    overflow: visible;
-    @include tab {
-      margin: 100px auto 50px;
-    }
+    margin: 75px auto 40px auto;
+    padding: 0 39px 0 31px;
     @include pc {
-      width: 60%;
+      width: 47.5%;
       padding: 0;
       overflow: visible;
     }
@@ -24,75 +25,49 @@
 
   &__works {
     @extend .l-wrapper;
-    margin: 100px auto;
-    padding: 0 82px;
+    padding: 0 53px;
     @include pc {
       width: 53.8%;
       padding: 0;
-      margin: 0 auto 200px auto;
     }
   }
   &__about {
     @extend .l-wrapper;
-    margin: 0 auto 86px auto;
     padding: 0 59px;
     @include pc {
-      margin: 0 auto;
-      width: 74.3%;
-      max-width: 1000px;
+      padding: 0;
+      width: 106rem;
     }
   }
   &__price {
     @extend .l-wrapper;
-    padding: 0 40px;
-    margin: 0 auto 80px auto;
+    margin: 80rem auto 24px auto;
     @include tab {
-      max-width: 600px;
-      width: 70%;
-      margin: 100px auto;
       padding: 0;
-    }
-    @include pc {
       margin: 8rem auto;
-      width: 42%;
-      max-width: 700px;
+      width: 37.7%;
+      max-width: 600px;
     }
   }
 
   &__flow {
     width: 100%;
-    margin: 0 auto 93px auto;
-    padding: 0 20px;
+    margin: 82rem auto 80rem auto;
+    padding: 0 18rem;
     @include tab {
-      margin: 0 auto 100px auto;
-      width: 89%;
-      max-width: 700px;
-    }
-    @include pc {
-      max-width: 890px;
+      margin: 18rem auto;
       width: 65%;
-      margin: 0 auto 180px auto;
+      padding: 0;
     }
   }
 
   &__contact {
     @extend .l-wrapper;
-    background-color: #f2f4f5;
-    border-radius: 25px 25px 0 0;
-    padding: 16px 38px 50px 38px;
+    margin: 93rem auto 0;
+    padding: 16rem 38rem 50rem 38rem;
     @include tab {
-      width: 82%;
-      max-width: 700px;
-      padding: 52px 12px;
-    }
-    @include tab-l {
-      padding: 52px 34px;
-    }
-    @include pc {
-      width: 64.5%;
-      max-width: 881px;
-      padding: 52px 50px 18px 50px;
-      border-radius: 0;
+      margin: 18rem auto 0 auto;
+      padding: 5.2rem 0 15rem 0;
     }
   }
 }

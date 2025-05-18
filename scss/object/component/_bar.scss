@@ -4,8 +4,8 @@
   &__close {
     cursor: pointer;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 20rem;
+    height: 18rem;
     position: relative;
     @include pc {
       display: none;
@@ -14,16 +14,16 @@
   &__cross {
     position: absolute;
     top: 50%;
-    width: 20px;
-    height: 3px;
+    width: 20rem;
+    height: 3rem;
     transform: rotate(45deg);
     background-color: $color-blue;
     display: block;
   }
   &__cross::before {
     content: "";
-    width: 20px;
-    height: 3px;
+    width: 20rem;
+    height: 3rem;
     background-color: $color-blue;
     display: block;
     transform: rotate(90deg);

@@ -1,9 +1,0 @@
-@use "../../global/variable" as *;
-@use "../../global/mixin" as *;
-
-.p-header {
-  padding: 12px 19px 0 13px;
-  @include pc {
-    padding: 3.6rem 4.5rem 0 4.5rem;
-  }
-}
