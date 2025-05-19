@@ -5,6 +5,10 @@
     margin: 7rem 0 45rem 0;
     padding: 21rem 12rem 0 12rem;
     @include tab {
+      margin: 2rem auto 0 auto;
+      padding: 0;
+    }
+    @include pc {
       margin: 9.5rem auto 0 auto;
       padding: 0;
     }
@@ -13,6 +17,9 @@
     border-bottom: 1px solid $color-blue;
     padding: 8rem 0 3rem 0;
     @include tab {
+      padding: 1.5rem 2rem;
+    }
+    @include pc {
       padding: 2rem 2.4rem;
     }
   }

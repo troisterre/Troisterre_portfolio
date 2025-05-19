@@ -2,12 +2,25 @@
 @use "../../global/mixin" as *;
 .p-about {
   &__contents {
-    margin: 22px auto 0 auto;
-    gap: 14px;
+    margin: 22rem auto 0 auto;
+    gap: 14rem;
     width: 100%;
-    @include pc {
+    @include tab {
+      width: 100%;
+      padding: 5rem 3rem;
       background-color: $color-lightblue;
-      border-radius: 15px;
+      border-radius: 1.5rem;
+      gap: 4rem;
+      margin-top: 2rem;
+    }
+    @include tab-l {
+      background-color: $color-lightblue;
+      border-radius: 1.5rem;
+      padding: 5rem 4.5rem 4rem 5rem;
+      margin-top: 2rem;
+      gap: 4rem;
+    }
+    @include pc {
       padding: 6.4rem 8.9rem 7.6rem 9.8rem;
       margin-top: 1.2rem;
       gap: 7.9rem;
@@ -15,13 +28,16 @@
   }
   &__right {
     width: 100%;
+    @include tab-l {
+      width: 53%;
+    }
     @include pc {
       width: 53%;
     }
   }
   &__left {
     margin: 0 auto;
-    @include pc {
+    @include tab-l {
       margin: 0;
       width: 31rem;
     }
@@ -40,7 +56,14 @@
     margin-bottom: 10rem;
     text-align: center;
     @include tab {
-      font-size: 3rem;
+      font-size: 2.4rem;
+      line-height: calc(44 / 30);
+      letter-spacing: -0.04em;
+      text-align: center;
+      margin-bottom: 2.1rem;
+    }
+    @include tab-l {
+      font-size: 2.4rem;
       line-height: calc(44 / 30);
       letter-spacing: -0.04em;
       text-align: left;
@@ -50,11 +73,17 @@
   &__text {
     font-family: DNP ShueiGoGinStd;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 14rem;
     line-height: calc(20 / 14);
     letter-spacing: -0.01em;
     margin-bottom: 11rem;
     @include tab {
+      font-size: 1.6rem;
+      line-height: calc(34 / 20);
+      color: $color-black;
+      margin-bottom: 1.5rem;
+    }
+    @include pc {
       font-size: 2rem;
       line-height: calc(34 / 20);
       color: $color-black;
@@ -69,13 +98,19 @@
     letter-spacing: -0.19em;
     @include tab {
       margin-bottom: 0.5rem;
+      font-size: 2rem;
+      line-height: calc(46 / 25);
+      letter-spacing: -0.1em;
+    }
+    @include pc {
+      margin-bottom: 0.5rem;
       font-size: 2.5rem;
       line-height: calc(46 / 25);
       letter-spacing: -0.1em;
     }
   }
   &__skill-cat {
-    border-radius: 3px;
+    border-radius: 0.3rem;
     gap: 10rem;
     height: 20rem;
     background-color: $color-blue;
@@ -88,14 +123,23 @@
     align-items: center;
     padding: 0 9rem;
     @include tab {
+      font-size: 1.4rem;
+      background-color: $color-blue;
+      color: $color-white;
+      padding: 0 0.8rem;
+      line-height: calc(20 / 14);
+      height: 2rem;
+      border-radius: 0.3rem;
+    }
+    @include pc {
       font-size: 1.8rem;
-      line-height: 100%;
       letter-spacing: 0%;
       background-color: $color-blue;
       color: $color-white;
+      line-height: 1;
       padding: 0 1rem;
       height: 2.8rem;
-      border-radius: 3px;
+      border-radius: 0.3rem;
     }
   }
 }

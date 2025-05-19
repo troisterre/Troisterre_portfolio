@@ -2,12 +2,12 @@
 @use "../../global/mixin" as *;
 .c-title {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 20rem;
   line-height: calc(23 / 20);
   letter-spacing: -0.03em;
   text-align: center;
   @include tab {
-    font-size: 35vw;
+    font-size: 3rem;
     line-height: 1.13;
     text-align: left;
   }
@@ -20,8 +20,12 @@
   }
   &__important {
     @extend .c-title;
-
-    margin-bottom: 12px;
+    margin-bottom: 12rem;
+    @include tab {
+      text-align: left;
+      margin-left: 3rem;
+      margin-bottom: 1.8rem;
+    }
     @include pc {
       text-align: left;
       margin-left: 3rem;
@@ -43,6 +47,9 @@
   }
   &__price {
     @extend .c-title;
+    @include tab {
+      text-align: center;
+    }
   }
   &__flow {
     @extend .c-title;

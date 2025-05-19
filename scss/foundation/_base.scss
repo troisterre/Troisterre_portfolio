@@ -10,10 +10,14 @@ html {
   scroll-behavior: smooth;
   //height: 100%;
   @include tab {
-    font-size: clamp(10px, 1vw, 16px); // タブレットで可変かつ安全
+    font-size: clamp(10px, 1.1vw, 14px);
+  }
+
+  @include tab-l {
+    font-size: clamp(10px, 1.2vw, 16px);
   }
   @include pc {
-    font-size: 10px;
+    font-size: 50%;
   }
 }
 .tenmincho-text {

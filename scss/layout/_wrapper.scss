@@ -3,21 +3,34 @@
 .l-wrapper {
   width: 100%;
   padding: 0 30rem;
-  margin: 80px auto;
+  margin: 80rem auto;
   @include tab {
-    margin: 90vw auto;
+    margin: 8rem auto;
     padding: 0 6rem;
   }
-  @include tab {
+  @include pc {
     margin: 18rem auto;
     padding: 0 6rem;
   }
   &__important {
     @extend .l-wrapper;
-    margin: 75px auto 40px auto;
-    padding: 0 39px 0 31px;
+    margin: 75rem auto 40rem auto;
+    padding: 0 39rem 0 31rem;
+    @include tab {
+      margin: 7.5rem auto;
+      width: 53rem;
+      padding: 0;
+      overflow: visible;
+    }
+    @include tab-l {
+      margin: 7.5rem auto 4rem auto;
+      width: 60rem;
+      padding: 0;
+      overflow: visible;
+    }
     @include pc {
-      width: 47.5%;
+      margin: 7.5rem auto 4rem auto;
+      width: 65rem;
       padding: 0;
       overflow: visible;
     }
@@ -25,7 +38,11 @@
 
   &__works {
     @extend .l-wrapper;
-    padding: 0 53px;
+    padding: 0 53rem;
+    @include tab {
+      width: 70%;
+      padding: 0;
+    }
     @include pc {
       width: 53.8%;
       padding: 0;
@@ -33,16 +50,26 @@
   }
   &__about {
     @extend .l-wrapper;
-    padding: 0 59px;
+    padding: 0 59rem;
+    @include tab {
+      padding: 0;
+      width: 85%;
+    }
     @include pc {
       padding: 0;
-      width: 106rem;
+      width: 77.5%;
     }
   }
   &__price {
     @extend .l-wrapper;
-    margin: 80rem auto 24px auto;
+    margin: 80rem auto 24rem auto;
     @include tab {
+      padding: 0;
+      margin: 8rem auto;
+      width: 50rem;
+      max-width: 600px;
+    }
+    @include pc {
       padding: 0;
       margin: 8rem auto;
       width: 37.7%;
@@ -55,6 +82,14 @@
     margin: 82rem auto 80rem auto;
     padding: 0 18rem;
     @include tab {
+      margin: 8rem auto;
+      width: 85%;
+      padding: 0;
+    }
+    @include tab-l {
+      width: 75%;
+    }
+    @include pc {
       margin: 18rem auto;
       width: 65%;
       padding: 0;
@@ -66,6 +101,10 @@
     margin: 93rem auto 0;
     padding: 16rem 38rem 50rem 38rem;
     @include tab {
+      margin: 8rem auto 0 auto;
+      padding: 5.2rem 0;
+    }
+    @include pc {
       margin: 18rem auto 0 auto;
       padding: 5.2rem 0 15rem 0;
     }

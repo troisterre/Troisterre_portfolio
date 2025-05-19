@@ -90,9 +90,9 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 10px;
-    @include pc {
-      gap: 10px;
+    gap: 10rem;
+    @include tab {
+      gap: 1rem;
     }
   }
   &__skill {
@@ -100,9 +100,10 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 10rem;
     @include tab {
       flex-wrap: wrap;
+      gap: 1rem;
     }
   }
   &__flow {
@@ -117,16 +118,17 @@
   &__flow-subtitle {
     @extend .u-flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: baseline;
     @include tab {
       flex-direction: column;
+      align-items: baseline;
     }
   }
   &__about {
     @extend .u-flex;
     flex-direction: column;
     align-items: center;
-    @include tab {
+    @include tab-l {
       flex-direction: row;
       justify-content: center;
     }
@@ -135,7 +137,7 @@
     @extend .u-flex;
     flex-direction: column;
     align-items: start;
-    @include tab {
+    @include tab-l {
       flex-direction: row;
     }
   }
@@ -173,7 +175,7 @@
     @extend .u-flex;
     @extend .u-flex__row;
     align-items: first baseline;
-    gap: 5px;
+    gap: 5rem;
     @include tab {
       flex-direction: column;
       gap: 0;

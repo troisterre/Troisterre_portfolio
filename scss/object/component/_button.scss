@@ -8,8 +8,8 @@
   color: $color-white;
   cursor: pointer;
   border-radius: 38rem;
-  @include pc {
-    border-radius: 100px;
+  @include tab {
+    border-radius: 10rem;
     gap: 1rem;
   }
 
@@ -21,8 +21,9 @@
     height: 11rem;
     margin-right: 8rem;
     @include tab {
-      width: 3rem;
-      height: 3rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-right: 0.8rem;
     }
     @include pc {
       width: 3rem;
@@ -38,13 +39,13 @@
     transform: translate(-50%, -50%);
     width: 0;
     height: 0;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-left: 5px solid $color-blue;
+    border-top: 3rem solid transparent;
+    border-bottom: 3rem solid transparent;
+    border-left: 5rem solid $color-blue;
     @include tab {
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-left: 8px solid $color-blue;
+      border-top: 0.6rem solid transparent;
+      border-bottom: 0.6rem solid transparent;
+      border-left: 0.8rem solid $color-blue;
     }
     @include pc {
       border-top: 0.6rem solid transparent;
@@ -60,8 +61,9 @@
     line-height: 1;
     letter-spacing: -0.05em;
     @include tab {
-      font-size: 2.4rem;
-      letter-spacing: -0.12em;
+      font-size: 2rem;
+      line-height: calc(48 / 24);
+      letter-spacing: -0em;
     }
     @include pc {
       font-size: 2.4rem;
@@ -73,7 +75,10 @@
     @extend .c-button;
     width: 174rem;
     height: 34rem;
-
+    @include tab {
+      width: 24rem;
+      height: 5rem;
+    }
     @include pc {
       width: 40rem;
       height: 6.8rem;

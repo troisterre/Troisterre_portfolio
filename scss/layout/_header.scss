@@ -13,9 +13,6 @@
   @include tab {
     padding: 3rem;
   }
-  @include pc {
-    padding: 3.4rem 4.5rem;
-  }
   &.scrolled {
     background-color: rgba(255, 255, 255, 0.95); /* 白＋透明感 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影をつけると見やすい */
@@ -75,6 +72,7 @@
     line-height: calc(15 / 12);
     @include tab {
       font-size: 2rem;
+      line-height: 1.18;
     }
     @include tab-l {
       font-size: 2.4rem;
@@ -85,6 +83,20 @@
       letter-spacing: -0.07em;
     }
     @include pc-l {
+      font-size: 3.2rem;
+    }
+  }
+  &__title-second {
+    margin-top: 0.5rem;
+    @include tab {
+      margin-top: 0;
+      font-size: 2rem;
+      line-height: 1.18;
+    }
+    @include tab-l {
+      font-size: 2.4rem;
+    }
+    @include pc {
       font-size: 3.2rem;
     }
   }
@@ -103,16 +115,7 @@
       font-size: 3rem;
     }
   }
-  &__title-second {
-    margin-top: 0.5rem;
-    @include tab {
-      margin-top: 0;
-      font-size: 2.4rem;
-    }
-    @include pc {
-      font-size: 3.2rem;
-    }
-  }
+
   &__title-link {
     text-decoration: none;
     color: inherit;
@@ -151,10 +154,13 @@
         display: block;
         bottom: 0;
         left: 0;
-        width: 6.8rem;
-        height: 1px;
+        width: 6rem;
+        height: 0.1rem;
         background-color: $color-black;
         transform: translateY(-50%);
+      }
+      @include pc {
+        width: 6.8rem;
       }
     }
   }

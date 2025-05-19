@@ -5,6 +5,10 @@
     margin: 14rem 0 0 0;
     position: relative;
     @include tab {
+      margin: 4rem 0 0 0;
+      padding-left: 1.8rem;
+    }
+    @include pc {
       margin: 8rem 0 0 0;
       padding-left: 1.8rem;
     }
@@ -20,6 +24,12 @@
       border-left: 2px solid $color-blue;
       margin: -1rem 0 0 0;
     }
+    @include pc {
+      gap: 1rem;
+      padding: 0;
+      border-left: 2px solid $color-blue;
+      margin: -1rem 0 0 0;
+    }
   }
 
   &__item:last-child {
@@ -28,7 +38,7 @@
   &__item::after {
     content: "";
     position: absolute;
-    left: -7px;
+    left: -7rem;
     top: 100%;
     margin-top: -6rem;
     width: 0;
@@ -66,7 +76,7 @@
     font-weight: 400;
     font-size: 16rem;
     line-height: calc(24 / 16);
-    border-radius: 25px;
+    border-radius: 25rem;
     padding: 1rem 18.5rem;
     letter-spacing: -0.01em;
     color: white;
@@ -75,6 +85,24 @@
     justify-content: center;
     align-items: center;
     @include tab {
+      width: 20rem;
+      font-weight: 400;
+      font-size: 1.8rem;
+      line-height: calc(35 / 24);
+      background-color: #fff;
+      letter-spacing: -0.1em;
+      color: $color-blue;
+      display: flex;
+      padding: 0 0 0 1.8rem;
+      justify-content: flex-start;
+      align-items: first baseline;
+      margin: 0 0 10rem 0;
+      position: relative;
+    }
+    @include tab-l {
+      font-size: 2rem;
+    }
+    @include pc {
       width: 23rem;
       font-weight: 400;
       font-size: 2.4rem;
@@ -93,6 +121,10 @@
   &__item:last-child .p-flow__item-title {
     padding: 0 0 0 10rem;
     @include tab {
+      width: 10rem;
+      padding: 0 0 0 0.5rem;
+    }
+    @include pc {
       width: 21rem;
       padding: 0 0 0 0.5rem;
     }
@@ -114,6 +146,16 @@
       flex-shrink: 0;
       margin: 0.7rem 0 0 -2.9rem;
     }
+    @include pc {
+      content: "";
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      background-color: $color-blue;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin: 0.7rem 0 0 -2.9rem;
+    }
   }
   &__item:last-child .p-flow__item-title::before {
     margin: 0.2rem 0 0 -2.9rem;
@@ -124,18 +166,31 @@
     font-weight: 400;
     font-size: 16rem;
     line-height: calc(24 / 16);
-    border-radius: 25px;
+    border-radius: 25rem;
     padding: 1rem 18.5rem;
     letter-spacing: -0.01em;
     color: white;
     background-color: $color-blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #fff;
     @include tab {
       color: $color-blue;
-      margin: 0 0 0 -3px;
+      margin: 0 0 0 -0.3rem;
+      width: 20.6rem;
+      font-weight: 400;
+      font-size: 2.4rem;
+      line-height: calc(35 / 24);
+      background-color: #fff;
+      letter-spacing: -0.1em;
+      color: $color-blue;
+      display: flex;
+      padding: 0 0 0 1.8rem;
+      justify-content: flex-start;
+      align-items: first baseline;
+      position: relative;
+    }
+    @include pc {
+      color: $color-blue;
+      margin: 0 0 0 -0.3rem;
       width: 23rem;
       font-weight: 400;
       font-size: 2.4rem;
@@ -163,12 +218,25 @@
     @include tab {
       width: 76.4%;
       font-weight: 400;
-      font-size: 20px;
+      font-size: 1.6rem;
       line-height: calc(30 / 20);
       letter-spacing: -0.01em;
       color: $color-black;
       background-color: $color-lightblue;
-      padding: 10px 14px;
+      padding: 1rem 1.4rem;
+    }
+    @include tab-l {
+      font-size: 1.8rem;
+    }
+    @include pc {
+      width: 76.4%;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: calc(30 / 20);
+      letter-spacing: -0.01em;
+      color: $color-black;
+      background-color: $color-lightblue;
+      padding: 1rem 1.4rem;
     }
   }
   &__item:last-child .p-flow__item-text {
@@ -176,10 +244,13 @@
     @include tab {
       padding: 1rem 1.4rem;
     }
+    @include pc {
+      padding: 1rem 1.4rem;
+    }
   }
   &__item-subtitle-sp {
     color: #fff;
-    margin-left: -1.8rem;
+    margin: 0;
     font-size: 10rem;
     @include tab {
       display: none;
@@ -188,6 +259,15 @@
   &__item-subtitle-pc {
     display: none;
     @include tab {
+      display: block;
+      color: #fff;
+      font-size: 1.6rem;
+      line-height: 1.36;
+      color: $color-blue;
+      margin-left: -9rem;
+      transform: translateX(-0.5rem);
+    }
+    @include pc {
       display: block;
       color: #fff;
       font-size: 1.6rem;
