@@ -95,3 +95,16 @@ li {
     display: block;
   }
 }
+#works,
+#about,
+#price,
+#flow,
+#contact {
+  scroll-margin-top: 80rem; // ヘッダーの高さに応じて調整
+  @include tab {
+    scroll-margin-top: 20rem;
+  }
+  @include pc {
+    scroll-margin-top: 24rem;
+  }
+}

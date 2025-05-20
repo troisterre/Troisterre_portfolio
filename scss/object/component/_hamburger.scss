@@ -61,6 +61,7 @@
     color: $color-blue;
     @include tab {
       top: 10%;
+      padding: 5rem 0;
     }
     @include pc {
       display: none;
@@ -77,6 +78,10 @@
   &__list {
     margin-bottom: 20rem;
     padding: 0 0 0 20rem;
+    @include tab {
+      margin-bottom: 2rem;
+      padding: 0 0 0 2rem;
+    }
   }
   &__list:hover {
     background: $color-blue;
@@ -85,5 +90,8 @@
   }
   &__list a {
     font-size: 20rem;
+    @include tab {
+      font-size: 2rem;
+    }
   }
 }

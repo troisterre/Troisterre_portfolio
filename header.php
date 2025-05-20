@@ -16,7 +16,7 @@
   <meta property="og:title" content="Web制作・コーディング代行｜KAMIMURAのポートフォリオ" />
   <meta property="og:description" content="SEO・MEO対策済みの高品質Web制作。HTML/CSS/WordPress対応。全国からのご依頼に対応。" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-portfolio-url.com" />
+  <meta property="og:url" content="https://troisterre-kamimura.com" />
   <meta property="og:image" content="https://your-portfolio-url.com/ogp.jpg" />
   <meta property="og:site_name" content="KAMIMURAポートフォリオ" />
 

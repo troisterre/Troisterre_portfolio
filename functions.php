@@ -1,6 +1,11 @@
 <?php
 //テーマサポート
 add_theme_support('menus');
+register_nav_menus(array(
+  'header-nav' => 'ヘッダーナビゲーション',
+));
+
+
 add_theme_support('title-tag');
 add_theme_support('post-thumbnails');
 add_filter('show_admin_bar', '__return_false');
@@ -65,12 +70,3 @@ function register_my_menus()
   );
 }
 add_action('after_setup_theme', 'register_my_menus');
-
-function add_custom_class_to_nav_menu($classes, $item, $args)
-{
-  if ($args->theme_location == 'header-nav') {
-    $classes[] = 'your-custom-class'; // 任意のクラス名
-  }
-  return $classes;
-}
-add_filter('nav_menu_css_class', 'add_custom_class_to_nav_menu', 10, 3);

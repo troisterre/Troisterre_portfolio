@@ -58,6 +58,7 @@
     @include pc {
       padding: 0;
       width: 77.5%;
+      max-width: 1016px;
     }
   }
   &__price {
@@ -92,6 +93,7 @@
     @include pc {
       margin: 18rem auto;
       width: 65%;
+      max-width: 900px;
       padding: 0;
     }
   }

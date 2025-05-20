@@ -39,7 +39,7 @@
       gap: 3rem;
     }
   }
-  &__nav-item {
+  &__nav-list li {
     font-family: "dnp-shuei-gothic-gin-std", sans-serif;
     font-size: 18rem;
     font-weight: 500;
@@ -59,7 +59,7 @@
       transform: translateY(-2px);
     }
   }
-  &__nav-item:last-child {
+  &__nav-list:last-child li {
     padding: 1rem 0 1rem 0;
   }
   &__title {
