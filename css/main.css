@@ -1100,7 +1100,7 @@ th {
   }
 }
 
-.c-button, .c-button__contact, .c-button__price, .c-button__mv {
+.c-button, .c-button__price, .c-button__mv {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1110,7 +1110,7 @@ th {
   border-radius: 38rem;
 }
 @media (min-width: 560px) {
-  .c-button, .c-button__contact, .c-button__price, .c-button__mv {
+  .c-button, .c-button__price, .c-button__mv {
     border-radius: 10rem;
     gap: 1rem;
   }
@@ -1217,18 +1217,24 @@ th {
   }
 }
 .c-button__contact {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  width: 174rem;
-  height: 34rem;
+  font-family: DNP ShueiGoGinStd;
+  font-weight: 500;
+  font-size: 15rem;
+  color: #f2f4f5;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 @media (min-width: 560px) {
   .c-button__contact {
-    width: 29.1rem;
-    height: 6.8rem;
-    margin: 1.5rem auto 3rem auto;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+  }
+}
+@media (min-width: 960px) {
+  .c-button__contact {
+    font-size: 1.8rem;
   }
 }
 
@@ -2204,7 +2210,6 @@ th {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  animation: blink 1s infinite;
   overflow: hidden;
 }
 @media (min-width: 560px) {
@@ -2352,22 +2357,28 @@ th {
     gap: 3.9rem;
   }
 }
-.p-contact__form-group label {
+.p-contact__form-label, .p-contact__form-textarea {
   width: 100%;
-  gap: 3rem;
+  gap: 2rem;
   font-weight: 400;
   font-size: 14rem;
   line-height: 2;
-  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 3rem;
 }
 @media (min-width: 560px) {
-  .p-contact__form-group label {
+  .p-contact__form-label, .p-contact__form-textarea {
+    flex-direction: row;
+    justify-content: flex-start;
     gap: 1rem;
     font-size: 1.8rem;
   }
 }
 @media (min-width: 720px) {
-  .p-contact__form-group label {
+  .p-contact__form-label, .p-contact__form-textarea {
     gap: 0.5rem;
     width: 38%;
     font-size: 1.6rem;
@@ -2375,12 +2386,12 @@ th {
   }
 }
 @media (min-width: 960px) {
-  .p-contact__form-group label {
+  .p-contact__form-label, .p-contact__form-textarea {
     font-size: 2.2rem;
     width: 32%;
   }
 }
-.p-contact__form-group input {
+.p-contact__form-input {
   width: 100%;
   padding: 0.5rem;
   font-size: 14rem;
@@ -2390,7 +2401,7 @@ th {
   background-color: #fff;
 }
 @media (min-width: 560px) {
-  .p-contact__form-group input {
+  .p-contact__form-input {
     width: 100%;
     padding: 0.5rem;
     height: 5rem;
@@ -2401,7 +2412,7 @@ th {
   }
 }
 @media (min-width: 720px) {
-  .p-contact__form-group input {
+  .p-contact__form-input {
     width: 43.8rem;
     padding: 0.5rem;
     height: 5rem;
@@ -2426,32 +2437,6 @@ th {
     resize: vertical;
     gap: 3.9rem;
     margin-bottom: 9.3rem;
-  }
-}
-.p-contact__form-group-textarea label {
-  width: 100%;
-  font-size: 14rem;
-  align-items: center;
-}
-@media (min-width: 560px) {
-  .p-contact__form-group-textarea label {
-    font-size: 1.8rem;
-    gap: 1rem;
-  }
-}
-@media (min-width: 720px) {
-  .p-contact__form-group-textarea label {
-    width: 38%;
-    font-size: 1.6rem;
-    line-height: 2;
-    margin-right: 1rem;
-    letter-spacing: -0.2em;
-  }
-}
-@media (min-width: 960px) {
-  .p-contact__form-group-textarea label {
-    font-size: 2.2rem;
-    width: 33%;
   }
 }
 .p-contact__form-group-textarea textarea {
@@ -2500,6 +2485,46 @@ th {
   text-decoration: underline;
   color: #5075bb;
 }
+.p-contact__submit {
+  position: relative;
+  margin: 0 auto;
+  width: 174rem;
+  height: 34rem;
+  color: #f2f4f5;
+  background-color: #5075bb;
+  border: none;
+  border-radius: 38rem;
+}
+.p-contact__submit p {
+  width: 110rem;
+  height: 22.5rem;
+  position: relative;
+}
+.p-contact__submit p::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  transform: translateX(-90rem);
+  width: 24rem;
+  height: 24rem;
+  background-color: #f2f4f5;
+  border-radius: 50%;
+  clip-path: polygon(30% 25%, 70% 50%, 30% 75%);
+}
+@media (min-width: 560px) {
+  .p-contact__submit p::after {
+    width: 2rem;
+    height: 2rem;
+    right: 1.2rem;
+  }
+}
+@media (min-width: 960px) {
+  .p-contact__submit p::after {
+    width: 2.4rem;
+    height: 2.4rem;
+    right: 1.6rem;
+  }
+}
 
 .required {
   background-color: #d9534f;
@@ -2508,6 +2533,11 @@ th {
   border-radius: 3px;
   font-size: 10rem;
   margin-right: 6rem;
+  line-height: 1;
+  height: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width: 560px) {
   .required {

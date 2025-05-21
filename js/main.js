@@ -65,10 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
   new Swiper(".js-main-slider", {
     loop: true,
     autoplay: {
-      delay: 3000,
+      delay: 1000,
     },
     effect: "fade",
-    speed: 2000,
+    fadeEffect: {
+      crossFade: true, // ← これを追加！
+    },
+    speed: 3000,
   });
   new Swiper(".js-work-slider", {
     loop: true,
@@ -120,4 +123,28 @@ window.addEventListener("scroll", () => {
   } else {
     header.classList.remove("scrolled");
   }
+});
+function onClick(e) {
+  e.preventDefault();
+  grecaptcha.enterprise.ready(async () => {
+    const token = await grecaptcha.enterprise.execute(
+      "6LeZxEArAAAAAJ7_v0MZu1VlhtRMCdp_0PNlwxmG",
+      { action: "LOGIN" }
+    );
+  });
+}
+
+function onSubmit(token) {
+  document.getElementById("demo-form").submit();
+} // Use `requestSubmit()` for extra features like browser input validation.
+
+grecaptcha.enterprise.ready(function () {
+  grecaptcha.enterprise
+    .execute("6LeZxEArAAAAAJ7_v0MZu1VlhtRMCdp_0PNlwxmG", {
+      action: "contact_form",
+    })
+    .then(function (token) {
+      // token を hidden input にセットするなど
+      document.getElementById("recaptcha-token").value = token;
+    });
 });

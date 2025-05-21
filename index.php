@@ -277,34 +277,52 @@
   <!-- /.l-wrapper__works -->
 </section>
 <!-- /#works.p-works -->
-<section class="p-about" id="about">
-  <div class="l-wrapper__about">
-    <h2 class="c-title__about tenmincho-text">私について</h2>
-    <div class="p-about__contents u-flex__about">
-      <div class="p-about__left">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/about_image.png" alt="" />
+<?php
+$args = array(
+  'post_type' => 'page',
+  'name'     =>  'about',
+  'post_per_page' => 1,
+);
+$about_query = new WP_Query($args);
+
+if ($about_query->have_posts()):
+  while ($about_query->have_posts()): $about_query->the_post(); ?>
+    <section class="p-about" id="about">
+      <div class="l-wrapper__about">
+        <h2 class="c-title__about tenmincho-text">私について</h2>
+        <div class="p-about__contents u-flex__about">
+          <div class="p-about__left">
+            <?php the_post_thumbnail(); ?>
+          </div>
+          <div class="p-about__right">
+            <h3 class="p-about__name"><?php the_title(); ?></h3>
+            <div class="p-about__text tenmincho-text">
+              <?php the_content(); ?>
+            </div>
+            <!-- /.p-about__text -->
+            <h4 class="p-about__sub-title">スキル</h4>
+            <ul class="p-about__skill u-flex__skill">
+              <?php
+              $categories = get_the_category();
+              if (!empty($categories)) :
+                foreach ($categories as $category) : ?>
+                  <li class="p-about__skill-cat u-flex__center">
+                    <?php echo esc_html($category->name); ?>
+                  </li>
+              <?php endforeach;
+              endif;
+              ?>
+              <!-- /.p-about__skill -->
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="p-about__right">
-        <h3 class="p-about__name">かみむら</h3>
-        <p class="p-about__text tenmincho-text">
-          ２０２４年●月に、ウェブ制作に興味を持ちRaiseTechのワードプレスの受講を始めました。
-          現在は●●も学習をはじめ、ウェブ制作におけるご提案に生かしていきたいと考えております。テキストテキストテキストテキストテキストテキスト…etc
-        </p>
-        <!-- /.p-about__text -->
-        <h4 class="p-about__sub-title">スキル</h4>
-        <ul class="p-about__skill u-flex__skill">
-          <li class="p-about__skill-cat u-flex__center">HTML</li>
-          <li class="p-about__skill-cat u-flex__center">CSS</li>
-          <li class="p-about__skill-cat u-flex__center">JavaScript</li>
-          <li class="p-about__skill-cat u-flex__center">WordPress</li>
-          <!-- /.p-about__skill-list -->
-        </ul>
-        <!-- /.p-about__skill -->
-      </div>
-    </div>
-  </div>
-  <!-- /.l-wrapper l-wrapper-about -->
-</section>
+      <!-- /.l-wrapper l-wrapper-about -->
+    </section>
+<?php endwhile;
+  wp_reset_postdata();
+endif;
+?>
 <!-- /#about.p-about -->
 <section class="p-price" id="price">
   <div class="l-wrapper__price">
@@ -409,41 +427,9 @@
   <div class="l-wrapper__contact">
     <h2 class="c-title__contact tenmincho-text">お問い合わせ</h2>
     <!-- /.c-section__title -->
-    <div class="p-contact__form">
-      <div class="p-contact__form-group u-flex__contact">
-        <label class="u-flex__label"><span class="required tenmincho-text">必須</span> 名前</label>
-        <input type="text" name="name" />
-      </div>
-
-      <div class="p-contact__form-group u-flex__contact">
-        <label class="u-flex__label"><span class="required tenmincho-text">必須</span>名前(フリガナ)</label>
-        <input type="text" name="furigana" />
-      </div>
-
-      <div class="p-contact__form-group u-flex__contact">
-        <label class="u-flex__label"><span class="required tenmincho-text">必須</span> email</label>
-        <input type="email" name="email" />
-      </div>
-
-      <div class="p-contact__form-group-textarea u-flex__contact">
-        <label class="u-flex__label"><span class="required tenmincho-text">必須</span>
-          お問い合わせ内容</label>
-        <textarea name="message" rows="5"></textarea>
-      </div>
-
-      <div class="p-contact__privacy u-flex__center">
-        <label>
-          <input type="checkbox" name="privacy" />
-          <a href="#">プライバシーポリシー</a>に同意する
-        </label>
-      </div>
-
-      <a class="c-button__contact" href="#contact">
-        <span class="c-button__icon"></span>
-        <span class="c-button__text">お問い合わせ</span>
-      </a>
-    </div>
-    <!-- /.p-contact__form -->
+    <?php echo do_shortcode('[contact-form-7 id="ef59f26" title="ポートフォリオお問い合わせフォーム"]'); ?>
+    <button class="g-recaptcha" data-sitekey="6LeZxEArAAAAAJ7_v0MZu1VlhtRMCdp_0PNlwxmG" data-callback='onSubmit'
+      data-action='submit'>Submit</button>
   </div>
   <!-- /.l-wrapper__contact -->
 </section>
@@ -452,8 +438,6 @@
 <?php wp_footer(); ?>
 
 <!-- bodyの最後 -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/main.js"></script>
 </body>
 
 </html>
