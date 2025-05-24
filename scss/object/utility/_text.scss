@@ -11,7 +11,7 @@
   font-weight: bold;
 }
 
-// マージン・パディング（例）
+// マージン・パディング
 .u-mb-16 {
   margin-bottom: 16px;
 }
@@ -21,4 +21,11 @@
 .u-px-24 {
   padding-left: 24px;
   padding-right: 24px;
+}
+// レタースペーシング//
+.u-ls-w-10 {
+  letter-spacing: 0.1em;
+}
+.u-ls-w-1 {
+  letter-spacing: -0.01em;
 }

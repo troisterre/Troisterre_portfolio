@@ -100,11 +100,14 @@
     }
   }
   &__contact {
+    @extend .c-button;
     font-family: DNP ShueiGoGinStd;
     font-weight: 500;
     font-size: 15rem;
     color: $color-white;
     border: none;
+    background: black;
+    margin: 0 auto;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -117,4 +120,7 @@
       font-size: 1.8rem;
     }
   }
+}
+input[type="submit"].c-button__contact-none {
+  display: none;
 }

@@ -65,12 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
   new Swiper(".js-main-slider", {
     loop: true,
     autoplay: {
-      delay: 1000,
+      delay: 3000,
     },
     effect: "fade",
-    fadeEffect: {
-      crossFade: true, // ← これを追加！
-    },
     speed: 3000,
   });
   new Swiper(".js-work-slider", {
@@ -124,27 +121,97 @@ window.addEventListener("scroll", () => {
     header.classList.remove("scrolled");
   }
 });
-function onClick(e) {
-  e.preventDefault();
-  grecaptcha.enterprise.ready(async () => {
-    const token = await grecaptcha.enterprise.execute(
-      "6LeZxEArAAAAAJ7_v0MZu1VlhtRMCdp_0PNlwxmG",
-      { action: "LOGIN" }
-    );
-  });
-}
+//contact//
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".wpcf7-form");
 
-function onSubmit(token) {
-  document.getElementById("demo-form").submit();
-} // Use `requestSubmit()` for extra features like browser input validation.
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      const requiredFields = form.querySelectorAll("[required]");
+      const allFields = form.querySelectorAll("input, textarea");
+      const errorMessage = form.querySelector(".wpcf7-response-output");
 
-grecaptcha.enterprise.ready(function () {
-  grecaptcha.enterprise
-    .execute("6LeZxEArAAAAAJ7_v0MZu1VlhtRMCdp_0PNlwxmG", {
-      action: "contact_form",
-    })
-    .then(function (token) {
-      // token を hidden input にセットするなど
-      document.getElementById("recaptcha-token").value = token;
+      let anyInputFilled = false;
+      let hasEmptyRequired = false;
+
+      allFields.forEach((field) => {
+        if (field.value.trim() !== "") {
+          anyInputFilled = true;
+        }
+      });
+
+      requiredFields.forEach((field) => {
+        if (field.value.trim() === "") {
+          hasEmptyRequired = true;
+        }
+      });
+
+      if (anyInputFilled && hasEmptyRequired) {
+        e.preventDefault();
+        if (errorMessage) {
+          errorMessage.style.display = "block";
+          errorMessage.textContent =
+            "入力内容に問題があります。確認して再度お試しください。";
+        }
+      } else if (errorMessage) {
+        errorMessage.style.display = "none";
+      }
     });
+  }
+});
+
+//モーダル表示//
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".wpcf7-form");
+  const modal = document.getElementById("confirmation-modal");
+  const modalSubmit = document.getElementById("modal-submit");
+  const modalCancel = document.getElementById("modal-cancel");
+  const trigger = document.getElementById("open-confirmation-modal");
+
+  const realSubmitButton = form.querySelector(".c-button__contact-none"); // ← ここ変更！
+
+  if (
+    !form ||
+    !modal ||
+    !modalSubmit ||
+    !modalCancel ||
+    !trigger ||
+    !realSubmitButton
+  ) {
+    console.error("必要な要素が見つかりません。");
+    return;
+  }
+
+  // モーダル表示
+  trigger.addEventListener("click", function () {
+    document.getElementById("confirm-name").textContent =
+      form.querySelector('[name="your-name"]').value;
+    document.getElementById("confirm-kana").textContent =
+      form.querySelector('[name="your-kana"]').value;
+    document.getElementById("confirm-email").textContent = form.querySelector(
+      '[name="your-email"]'
+    ).value;
+    document.getElementById("confirm-message").textContent = form.querySelector(
+      '[name="your-message"]'
+    ).value;
+
+    modal.style.display = "flex";
+  });
+
+  // モーダル内送信
+  modalSubmit.addEventListener("click", function () {
+    modal.style.display = "none";
+    realSubmitButton.click(); // ← 実際の送信
+  });
+
+  // キャンセル
+  modalCancel.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  // 送信完了後のリダイレクト
+  document.addEventListener("wpcf7mailsent", function () {
+    window.location.href = "/thanks";
+  });
 });

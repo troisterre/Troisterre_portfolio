@@ -37,6 +37,13 @@ function troisterre_script()
   wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), null);
 
   wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);
+  wp_enqueue_script(
+    'troisterre-contact-js',
+    get_template_directory_uri() . '/js/main.js',
+    array('recaptcha-enterprise'), // ← ここで依存関係を指定
+    null,
+    true
+  );
   wp_enqueue_script('main-js', get_template_directory_uri() . '/js/main.js', array(), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'troisterre_script');
@@ -47,18 +54,53 @@ function add_category_to_pages()
   register_taxonomy_for_object_type('category', 'page');
 }
 add_action('init', 'add_category_to_pages');
-function troisterre_enqueue_recaptcha_enterprise()
-{
-  // あなたのサイトキー
-  $site_key = '6Lfew0ArAAAAAGvdzSgbumbqn0FWnYRwQNbzrcpa';
 
-  // reCAPTCHA Enterprise スクリプトの読み込み（非同期＆defer付き）
-  wp_enqueue_script(
-    'recaptcha-enterprise',
-    'https://www.google.com/recaptcha/enterprise.js?render=' . $site_key,
-    array(),
-    null,
-    true
-  );
+// reCAPTCHA Enterprise 検証
+add_filter('wpcf7_validate', 'verify_recaptcha_enterprise_token', 10, 2);
+
+function verify_recaptcha_enterprise_token($result, $tags)
+{
+  if (!isset($_POST['g-recaptcha-response'])) {
+    $result->invalidate(null, 'reCAPTCHAトークンがありません。');
+    return $result;
+  }
+
+  $token = sanitize_text_field($_POST['g-recaptcha-response']);
+  $project_id = 'your-project-id'; // ← あなたの GCP プロジェクトIDに置き換えてください
+  $recaptcha_action = 'contact_form';
+
+  $url = 'https://recaptchaenterprise.googleapis.com/v1/projects/' . $project_id . '/assessments?key=YOUR_API_KEY'; // ← Enterprise APIキーに置き換えてください
+
+  $body = json_encode([
+    'event' => [
+      'token' => $token,
+      'siteKey' => '6LdOiUYrAAAAALRt6hR4lTRDW3qwr-prFy5iGY1C',
+      'expectedAction' => $recaptcha_action,
+    ]
+  ]);
+
+  $response = wp_remote_post($url, [
+    'headers' => ['Content-Type' => 'application/json'],
+    'body' => $body,
+    'timeout' => 10,
+  ]);
+
+  if (is_wp_error($response)) {
+    $result->invalidate(null, 'reCAPTCHAサーバーとの通信に失敗しました。');
+    return $result;
+  }
+
+  $data = json_decode(wp_remote_retrieve_body($response), true);
+
+  if (empty($data['tokenProperties']['valid']) || $data['tokenProperties']['action'] !== $recaptcha_action) {
+    $result->invalidate(null, 'reCAPTCHA検証に失敗しました。もう一度お試しください。');
+    return $result;
+  }
+
+  $score = $data['riskAnalysis']['score'] ?? 0;
+  if ($score < 0.5) {
+    $result->invalidate(null, 'スパムと判定されました。');
+  }
+
+  return $result;
 }
-add_action('wp_enqueue_scripts', 'troisterre_enqueue_recaptcha_enterprise');

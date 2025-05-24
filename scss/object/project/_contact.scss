@@ -17,24 +17,26 @@
   &__form {
     margin: 12rem 0 22rem 0;
     @include tab {
-      margin: 0 0 0 0;
-      padding: 3rem 4rem 0;
-    }
-    @include pc {
-      margin: 4rem 0 0 0;
-      padding: 5.2rem 8.2rem 0 8.2rem;
+      margin: 3.5rem 0 0 0;
     }
   }
+
   &__form-group {
     gap: 7rem;
     margin-bottom: 35rem;
     @include tab {
       margin-bottom: 3.5rem;
-      gap: 1.5rem;
     }
     @include tab-l {
       margin-bottom: 5rem;
-      gap: 3.9rem;
+    }
+  }
+  &__form-group p,
+  &__form-group-textarea p {
+    @include tab {
+      display: flex;
+      justify-content: space-between;
+      align-items: first baseline;
     }
   }
   &__form-label,
@@ -52,22 +54,18 @@
     @include tab {
       flex-direction: row;
       justify-content: flex-start;
-      gap: 1rem;
+      gap: 0.5rem;
       font-size: 1.8rem;
+      margin-left: 1.5rem;
     }
     @include tab-l {
       gap: 0.5rem;
       width: 38%;
       font-size: 1.6rem;
-      margin-right: 1rem;
     }
     @include pc {
       font-size: 2.2rem;
-      width: 32%;
-    }
-    &__label {
-      @include tab {
-      }
+      width: 24rem;
     }
   }
   &__form-input {
@@ -159,17 +157,31 @@
     background-color: $color-blue;
     border: none;
     border-radius: 38rem;
+    @include tab {
+      width: 24rem;
+      height: 3rem;
+      border-radius: 3.8rem;
+    }
+    @include pc {
+      width: 30rem;
+      height: 5rem;
+    }
   }
   &__submit p {
     width: 110rem;
     height: 22.5rem;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    @include tab {
+      width: 11rem;
+      height: 2.25rem;
+      gap: 1rem;
+    }
   }
-  &__submit p::after {
+  &__submit p::before {
     content: "";
-    position: absolute;
-    top: 0;
-    transform: translateX(-90rem);
     width: 24rem;
     height: 24rem;
     background-color: $color-white;
@@ -188,6 +200,28 @@
       right: 1.6rem;
     }
   }
+  &__submit span {
+    display: none;
+  }
+  &__modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  &__modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+  }
 }
 
 .required {
@@ -204,9 +238,13 @@
   align-items: center;
   @include tab {
     font-size: 1.5rem;
-    margin-right: 0;
     padding: 0.3rem 0.45rem;
     line-height: 1;
+    width: 3.9rem;
+    height: 2.1rem;
+    margin-right: 0;
+  }
+  @include pc {
   }
 }
 input[type="checkbox"] {
@@ -225,5 +263,17 @@ input[type="checkbox"] {
     height: 2rem;
     margin-right: 1rem;
     margin-bottom: 0;
+  }
+}
+.wpcf7-response-output {
+  display: block;
+  color: red;
+  margin-top: 1em;
+  font-size: 10erm;
+  @include tab {
+    font-size: 1.4rem;
+  }
+  @include pc {
+    font-size: 1.6rem;
   }
 }

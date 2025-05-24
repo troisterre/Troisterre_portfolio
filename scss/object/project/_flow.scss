@@ -14,7 +14,6 @@
     }
   }
   &__item {
-    gap: 9rem;
     position: relative;
     border-left: 2px solid $color-blue;
     margin: 0 0 3rem 10rem;
@@ -213,7 +212,7 @@
     font-weight: 400;
     font-size: 14rem;
     line-height: calc(19 / 14);
-    padding: 9rem 0 45rem 10rem;
+    padding: 9rem 0 18rem 10rem;
     letter-spacing: -0.09em;
     @include tab {
       width: 76.4%;

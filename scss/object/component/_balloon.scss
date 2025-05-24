@@ -80,6 +80,7 @@
     line-height: 2;
     text-align: center;
     letter-spacing: -0.042em;
+    margin-bottom: -5rem;
     @include tab {
       color: $color-white;
       transform: translate(-15%);
@@ -93,6 +94,7 @@
       line-height: calc(72 / 64);
       letter-spacing: -0.03em;
       z-index: -2;
+      margin-bottom: 0;
     }
     @include pc {
       color: $color-white;

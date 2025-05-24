@@ -139,6 +139,7 @@
     align-items: start;
     @include tab-l {
       flex-direction: row;
+      justify-content: space-between;
     }
   }
   &__label {

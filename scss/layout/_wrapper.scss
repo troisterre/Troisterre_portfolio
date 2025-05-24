@@ -101,14 +101,13 @@
   &__contact {
     @extend .l-wrapper;
     margin: 93rem auto 0;
-    padding: 16rem 38rem 50rem 38rem;
+    padding: 38rem 38rem 50rem 38rem;
     @include tab {
       margin: 8rem auto 0 auto;
-      padding: 5.2rem 0;
+      padding: 5.2rem 8.1rem;
     }
     @include pc {
       margin: 18rem auto 0 auto;
-      padding: 5.2rem 0 15rem 0;
     }
   }
 }
