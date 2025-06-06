@@ -246,11 +246,10 @@
   &__price span {
     font-size: 20rem;
     line-height: calc(20 / 16);
-    letter-spacing: -0.05;
+    letter-spacing: 0.01em;
     @include tab {
       font-size: 2.2rem;
       line-height: 1;
-      letter-spacing: -0.1em;
     }
     @include tab-l {
       font-size: 2.4rem;
@@ -278,5 +277,43 @@
       line-height: calc(40 / 18);
       padding-left: 3.2rem;
     }
+    &__code-box {
+      background-color: $color-black; // ダークな背景
+      color: #dcdcdc; // 明るめの文字色
+      font-family: "Courier New", Courier, monospace; // 等幅フォント
+      font-size: 1.4rem;
+      padding: 2rem;
+      border-radius: 8px;
+      line-height: 1.6;
+      white-space: pre-wrap; // 改行と空白をそのまま
+      overflow-y: auto;
+      max-height: 300px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border: 1px solid #333;
+      position: relative;
+    }
+    &__code-box::after {
+      content: "";
+      display: inline-block;
+      width: 1ch;
+      height: 1.4rem;
+      background-color: #dcdcdc;
+      animation: blink 1s steps(1) infinite;
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+    }
+  }
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
   }
 }

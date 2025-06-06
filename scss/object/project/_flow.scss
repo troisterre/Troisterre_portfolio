@@ -71,7 +71,7 @@
   }
   &__item-title {
     position: relative;
-    margin: 0 0 0 -10rem;
+    margin: 0 0 0 -14rem;
     font-weight: 400;
     font-size: 16rem;
     line-height: calc(24 / 16);
@@ -123,15 +123,9 @@
       width: 10rem;
       padding: 0 0 0 0.5rem;
     }
-    @include pc {
-      width: 21rem;
-      padding: 0 0 0 0.5rem;
-    }
   }
   &__item:nth-child(5) .p-flow__item-title {
-    @include tab {
-      letter-spacing: 0;
-    }
+    letter-spacing: 0.04em;
   }
   &__item-title::before {
     display: none;

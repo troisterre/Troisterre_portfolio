@@ -1,5 +1,6 @@
 @use "../../global/variable" as *;
 @use "../../global/mixin" as *;
+@use "../../foundation/base" as *;
 .c-balloon {
   margin-top: 12rem;
   @include tab {
@@ -46,7 +47,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 20rem 13rem 20rem 26rem;
+    padding: 16rem 13rem 20rem 26rem;
     width: 100%;
     box-sizing: border-box;
     margin-top: -0.5rem;

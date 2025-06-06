@@ -62,6 +62,29 @@
     line-height: calc(30 / 20);
     @extend .c-title;
     @include tab {
+      margin-bottom: 3.5rem;
+    }
+  }
+  &__thanks {
+    font-weight: 400;
+    font-size: 36rem;
+    line-height: calc(37 / 36);
+    color: $color-blue;
+    text-align: center;
+    margin-bottom: 7rem;
+    @include tab {
+      font-size: 8rem;
+      line-height: calc(37 / 80);
+      margin-bottom: 5.2rem;
+    }
+  }
+  &__404 {
+    font-size: 40rem;
+    line-height: calc(37 / 40);
+    letter-spacing: -0.03em;
+    @include tab {
+      font-size: 8rem;
+      line-height: calc(61 / 80);
     }
   }
 }

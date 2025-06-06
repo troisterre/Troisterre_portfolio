@@ -102,12 +102,27 @@
     @extend .l-wrapper;
     margin: 93rem auto 0;
     padding: 38rem 38rem 50rem 38rem;
+    overflow-x: hidden;
     @include tab {
       margin: 8rem auto 0 auto;
-      padding: 5.2rem 8.1rem;
+      padding: 5.2rem;
     }
     @include pc {
       margin: 18rem auto 0 auto;
+    }
+  }
+  &__thanks {
+    padding: 121rem 0 0 0;
+    text-align: center;
+    @include tab {
+      padding: 12.1rem 0 0 0;
+    }
+  }
+  &__404 {
+    padding: 124rem 0 0 0;
+    text-align: center;
+    @include tab {
+      padding: 18.9rem 0 0 0;
     }
   }
 }

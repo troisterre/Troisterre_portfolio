@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const target = document.getElementById("js-type-target");
-
+  if (!target) {
+    console.warn("#js-type-target が見つかりません。");
+    return;
+  }
   const rawCode = `const codeLines = escapeHtml(rawCode).split
 ("\n");
 let line = 0;
@@ -169,7 +172,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalCancel = document.getElementById("modal-cancel");
   const trigger = document.getElementById("open-confirmation-modal");
 
-  const realSubmitButton = form.querySelector(".c-button__contact-none"); // ← ここ変更！
+  if (!form) {
+    console.warn("formが見つかりません。");
+    return;
+  }
+
+  const realSubmitButton = form.querySelector(".c-button__contact-none");
+
+  if (!realSubmitButton) {
+    console.warn(".c-button__contact-none が見つかりません。");
+    return;
+  }
 
   if (
     !form ||

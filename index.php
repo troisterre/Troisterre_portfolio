@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <!-- /.l-header -->
 
-<section class="l-main-visual">
+<section class="l-main-visual id=top">
   <div class="p-main-visual">
     <h2 class="p-main-visual__title tenmincho-text">
       デザインの魅力を、<br />
@@ -18,8 +18,9 @@
       <span class="c-button__icon"></span>
       <span class="c-button__text">お問い合わせ</span>
     </a>
+
     <div class="p-main-visual__type no-sp">
-      <pre id="js-type-target"></pre>
+      <pre id="js-type-target" class="p-main-visual__code-box"></pre>
     </div>
     <!-- /.p-main-visual__type -->
     <div class="p-main-visual__skill-pc">
@@ -176,29 +177,29 @@
             if (have_posts()):
               while (have_posts()):
                 the_post(); ?>
-            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-              <?php the_post_thumbnail(); ?>
-              <ul class="c-works__cat u-flex__slide-cat">
-                <?php
+                <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                  <?php the_post_thumbnail(); ?>
+                  <ul class="c-works__cat u-flex__slide-cat">
+                    <?php
                     $categories = get_the_category();
                     if (!empty($categories)) :
                       foreach ($categories as $category) : ?>
-                <li class="c-works__cat-list">
-                  <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
-                    <?php echo esc_html($category->name); ?>
-                  </a>
-                </li>
-                <?php endforeach;
+                        <li class="c-works__cat-list">
+                          <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
+                            <?php echo esc_html($category->name); ?>
+                          </a>
+                        </li>
+                    <?php endforeach;
                     endif;
                     ?>
-              </ul>
-              <h4 class="c-works__cat-title"><?php the_title(); ?></h4>
-              <!-- /.p-works__cat-title -->
-            </div>
-            <!-- /.p-works -->
-            <?php endwhile;
+                  </ul>
+                  <h4 class="c-works__cat-title"><?php the_title(); ?></h4>
+                  <!-- /.p-works__cat-title -->
+                </div>
+                <!-- /.p-works -->
+              <?php endwhile;
             else: ?>
-            <p>表示する制作物はありません</p>
+              <p>表示する制作物はありません</p>
             <?php endif; ?>
           </div>
           <div class="swiper-slide">
@@ -287,38 +288,38 @@ $about_query = new WP_Query($args);
 
 if ($about_query->have_posts()):
   while ($about_query->have_posts()): $about_query->the_post(); ?>
-<section class="p-about" id="about">
-  <div class="l-wrapper__about">
-    <h2 class="c-title__about tenmincho-text">私について</h2>
-    <div class="p-about__contents u-flex__about">
-      <div class="p-about__left">
-        <?php the_post_thumbnail(); ?>
-      </div>
-      <div class="p-about__right">
-        <h3 class="p-about__name"><?php the_title(); ?></h3>
-        <div class="p-about__text tenmincho-text">
-          <?php the_content(); ?>
-        </div>
-        <!-- /.p-about__text -->
-        <h4 class="p-about__sub-title">スキル</h4>
-        <ul class="p-about__skill u-flex__skill">
-          <?php
+    <section class="p-about" id="about">
+      <div class="l-wrapper__about">
+        <h2 class="c-title__about tenmincho-text">私について</h2>
+        <div class="p-about__contents u-flex__about">
+          <div class="p-about__left">
+            <?php the_post_thumbnail(); ?>
+          </div>
+          <div class="p-about__right">
+            <h3 class="p-about__name"><?php the_title(); ?></h3>
+            <div class="p-about__text tenmincho-text">
+              <?php the_content(); ?>
+            </div>
+            <!-- /.p-about__text -->
+            <h4 class="p-about__sub-title">スキル</h4>
+            <ul class="p-about__skill u-flex__skill">
+              <?php
               $categories = get_the_category();
               if (!empty($categories)) :
                 foreach ($categories as $category) : ?>
-          <li class="p-about__skill-cat u-flex__center">
-            <?php echo esc_html($category->name); ?>
-          </li>
-          <?php endforeach;
+                  <li class="p-about__skill-cat u-flex__center">
+                    <?php echo esc_html($category->name); ?>
+                  </li>
+              <?php endforeach;
               endif;
               ?>
-          <!-- /.p-about__skill -->
-        </ul>
+              <!-- /.p-about__skill -->
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <!-- /.l-wrapper l-wrapper-about -->
-</section>
+      <!-- /.l-wrapper l-wrapper-about -->
+    </section>
 <?php endwhile;
   wp_reset_postdata();
 endif;
@@ -428,18 +429,23 @@ endif;
     <h2 class="c-title__contact tenmincho-text">お問い合わせ</h2>
     <!-- /.c-section__title -->
     <?php echo do_shortcode('[contact-form-7 id="ef59f26" title="ポートフォリオお問い合わせフォーム"]'); ?>
-    <input type="button" id="open-confirmation-modal" value="送信"
-      class="wpcf7-form-control wpcf7-submit has-spinner c-button__contact">
+    <div class="c-button__contact-wrapper">
+      <input type="button" id="open-confirmation-modal" value="送信"
+        class="wpcf7-form-control wpcf7-submit has-spinner c-button__contact">
+      <span class="c-button__triangle"></span>
+    </div>
+    <!-- /.c-button__contact-wrapper -->
     <div id="confirmation-modal" class="p-contact__modal">
       <div class="p-contact__modal-content">
-        <h2>入力内容の確認</h2>
-        <p><strong>名前:</strong> <span id="confirm-name"></span></p>
-        <p><strong>フリガナ:</strong> <span id="confirm-kana"></span></p>
-        <p><strong>Email:</strong> <span id="confirm-email"></span></p>
-        <p><strong>お問い合わせ内容:</strong> <span id="confirm-message"></span></p>
-        <div class="modal-buttons">
-          <button type="button" id="modal-submit">送信する</button>
-          <button type="button" id="modal-cancel">キャンセル</button>
+        <h2 class="p-contact__modal-title tenmincho-text">入力内容の確認</h2>
+        <p class="p-contact__modal-text tenmincho-text"><strong>名前</strong> <span id="confirm-name"></span></p>
+        <p class="p-contact__modal-text tenmincho-text"><strong>名前（フリガナ）</strong> <span id="confirm-kana"></span></p>
+        <p class="p-contact__modal-text tenmincho-text"><strong>Email</strong> <span id="confirm-email"></span></p>
+        <p class="p-contact__modal-textarea tenmincho-text"><strong>お問い合わせ内容</strong> <span id="confirm-message"></span>
+        </p>
+        <div class="p-contact__modal-buttons u-flex__center">
+          <button type="button" class="c-button__modal" id="modal-cancel">戻る</button>
+          <button type="button " class="c-button__modal" id="modal-submit">送信</button>
         </div>
       </div>
     </div>
@@ -449,8 +455,6 @@ endif;
 </main>
 <?php wp_footer(); ?>
 
-<script src="https://www.google.com/recaptcha/enterprise.js?render=6LdOiUYrAAAAALRt6hR4lTRDW3qwr-prFy5iGY1C"></script>
-<!-- bodyの最後 -->
 </body>
 
 </html>

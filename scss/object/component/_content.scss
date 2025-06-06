@@ -1,0 +1,18 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+@use "../../foundation/base" as *;
+.c-content {
+  &__thanks {
+    font-family: DNP ShueiGoGinStd;
+    font-size: 15rem;
+    line-height: calc(18 / 15);
+    letter-spacing: 0.09em;
+    text-align: center;
+    margin-bottom: 7rem;
+    @include tab {
+      font-size: 2rem;
+      line-height: calc(29 / 20);
+      margin-bottom: 11rem;
+    }
+  }
+}

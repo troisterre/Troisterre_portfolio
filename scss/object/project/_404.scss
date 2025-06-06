@@ -1,0 +1,45 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+@use "../../foundation/base" as *;
+.p-404 {
+  position: relative;
+  overflow: hidden;
+  height: 600rem;
+  margin: 36rem 0 0 0;
+  @include tab {
+    height: 60rem;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 100%;
+    width: 694rem;
+    height: 694rem;
+    background-color: rgba(230, 247, 255, 1);
+    top: 0%;
+    left: -42%;
+    z-index: -1;
+    @include tab {
+      width: 69.4rem;
+      height: 69.4rem;
+    }
+  }
+  &__img {
+    width: 152rem;
+    height: 193rem;
+    margin: 53rem auto 47rem;
+    @include tab {
+      width: 15.2rem;
+      height: 19.3rem;
+    }
+  }
+  &__text {
+    font-family: DNP ShueiGoGinStd;
+    font-weight: 400;
+    font-size: 12rem;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    margin-bottom: 7rem;
+  }
+}
