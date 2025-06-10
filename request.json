@@ -1,7 +1,0 @@
-{
-  "event": {
-    "token": "ここにgrecaptcha.enterprise.execute()で取得したトークンを入れる",
-    "expectedAction": "contact_form",
-    "siteKey": "6LfWe0YrAAAAABJohu94Lg_DF--LxjP2GGkmWUGc"
-  }
-}

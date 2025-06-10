@@ -11,7 +11,7 @@
       さらにマーケティング視点で、ただ作るだけではなく<br />伝えたいことが「伝わる」Webサイトを実装
     </p>
     <p class="p-main-visual__price">
-      <span class="u-bold">1P制作：5000円～</span><br />※詳しくは価格ページをご覧ください。
+      <span class="u-bold">1P制作：10,000円～</span><br />※詳しくは価格ページをご覧ください。
     </p>
     <p class="p-main-visual__contact">制作のご相談はこちら</p>
     <a class="c-button__mv" href="#contact">
@@ -24,22 +24,22 @@
     </div>
     <!-- /.p-main-visual__type -->
     <div class="p-main-visual__skill-pc">
-      <img src="<?php echo get_template_directory_uri(); ?>/img/skill_pc.png" alt="パソコン画像"
+      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/skill_pc.png" alt="パソコン画像"
         class="p-main-visual__skill-img" />
       <div class="p-main-visual__screen">
         <div class="swiper js-main-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/html.css.java.png" alt="スライド1" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/html.css.java.png" alt="スライド1" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/responsible_pc.png" alt="スライド2" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/responsible_pc.png" alt="スライド2" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/WordPress.png" alt="スライド3" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/WordPress.png" alt="スライド3" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/マーケティング.png" alt="スライド4" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/marketing.webp" alt="スライド4" />
             </div>
           </div>
           <!-- /.swiper-wrapper -->
@@ -49,22 +49,23 @@
     </div>
     <!-- /.p-main-visual__skill-pc -->
     <div class="p-main-visual__skill-tablet">
-      <img src="<?php echo get_template_directory_uri(); ?>/img/skill_pc.png" alt="パソコン画像"
+      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/skill_pc.png" alt="パソコン画像"
         class="p-main-visual__skill-img" />
       <div class="p-main-visual__screen">
         <div class="swiper js-main-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/html.css.java.png" alt="スライド1" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/html.css.java.png" alt="スライド1" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/responsible_pc.png" alt="スライド2" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/responsible_pc.png" alt="スライド2" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/WordPress.png" alt="スライド3" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/WordPress.png" alt="スライド3" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/マーケティング.png" alt="スライド4" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/marketing.webp" alt="スライド4" />
+
             </div>
           </div>
           <!-- /.swiper-wrapper -->
@@ -74,22 +75,22 @@
     </div>
     <!-- /.p-main-visual__skill-tablet -->
     <div class="p-main-visual__skill-sp">
-      <img src="<?php echo get_template_directory_uri(); ?>/img/sumaho_ps 1.png" alt="パソコン画像"
+      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/sumaho_ps 1.png" alt="パソコン画像"
         class="p-main-visual__skill-img" />
       <div class="p-main-visual__screen">
         <div class="swiper js-main-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/html_css_sp.png" alt="スライド1" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/html_css_sp.png" alt="スライド1" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/responsible_sp.png" alt="スライド2" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/responsible_sp.png" alt="スライド2" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/WordPress_sp.png" alt="スライド3" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/WordPress_sp.png" alt="スライド3" />
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/マーケティングSP.png" alt="スライド4" />
+              <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/marketingSP.webp" alt="スライド4" />
             </div>
           </div>
           <!-- /.swiper-wrapper -->
@@ -99,7 +100,7 @@
     </div>
     <!-- /.p-main-visual__skill-sp -->
     <div class="p-main-visual__pc-background">
-      <img src="<?php echo get_template_directory_uri(); ?>/img/mv_pc_img.png" alt="パソコン画像"
+      <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/mv_pc_img.png" alt="パソコン画像"
         class="p-main-visual__sp-img" />
     </div>
     <!--<div class="l-main-visual__circle-bg js-bg-circle"></div> -->
@@ -115,7 +116,8 @@
     <ul class="c-balloon js-fade-list">
       <li class="c-balloon__list u-flex__balloon">
         <div class="c-balloon__img-wrapper">
-          <img class="c-balloon__img-bg" src="<?php echo get_template_directory_uri(); ?>/img/Vector 4.png" alt="" />
+          <img class="c-balloon__img-bg" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/Vector 4.png"
+            alt="" />
           <div class="c-balloon__content">
             <h3 class="c-balloon__title tenmincho-text">
               デザインの意図を理解する
@@ -129,7 +131,7 @@
       </li>
       <li class="c-balloon__list u-flex__balloon-reverse">
         <div class="c-balloon__img-wrapper-rev">
-          <img class="c-balloon__img-bg" src="<?php echo get_template_directory_uri(); ?>/img/Vector_light.png"
+          <img class="c-balloon__img-bg" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/Vector_light.png"
             alt="" />
           <div class="c-balloon__content-rev">
             <h3 class="c-balloon__title tenmincho-text">
@@ -147,7 +149,8 @@
       <!-- /.p-fade-list__item -->
       <li class="c-balloon__list u-flex__balloon">
         <div class="c-balloon__img-wrapper">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/Vector 4.png" alt="" class="c-balloon__img-bg" />
+          <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/Vector 4.png" alt=""
+            class="c-balloon__img-bg" />
           <div class="c-balloon__content">
             <h3 class="c-balloon__title tenmincho-text">
               丁寧なコーディング
@@ -177,33 +180,34 @@
             if (have_posts()):
               while (have_posts()):
                 the_post(); ?>
-                <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                  <?php the_post_thumbnail(); ?>
-                  <ul class="c-works__cat u-flex__slide-cat">
-                    <?php
+            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+              <?php the_post_thumbnail(); ?>
+              <ul class="c-works__cat u-flex__slide-cat">
+                <?php
                     $categories = get_the_category();
                     if (!empty($categories)) :
                       foreach ($categories as $category) : ?>
-                        <li class="c-works__cat-list">
-                          <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
-                            <?php echo esc_html($category->name); ?>
-                          </a>
-                        </li>
-                    <?php endforeach;
+                <li class="c-works__cat-list">
+                  <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
+                    <?php echo esc_html($category->name); ?>
+                  </a>
+                </li>
+                <?php endforeach;
                     endif;
                     ?>
-                  </ul>
-                  <h4 class="c-works__cat-title"><?php the_title(); ?></h4>
-                  <!-- /.p-works__cat-title -->
-                </div>
-                <!-- /.p-works -->
-              <?php endwhile;
+              </ul>
+              <h4 class="c-works__cat-title"><?php the_title(); ?></h4>
+              <!-- /.p-works__cat-title -->
+              <?php the_tags('<ul class="tags"><li>', '</li><li>', '</li></ul>'); ?>
+            </div>
+            <!-- /.p-works -->
+            <?php endwhile;
             else: ?>
-              <p>表示する制作物はありません</p>
+            <p>表示する制作物はありません</p>
             <?php endif; ?>
           </div>
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
             <div class="c-works">
               <ul class="c-cworks__cat u-flex__slide-cat">
                 <li class="c-works__cat-list">WordPress</li>
@@ -216,7 +220,7 @@
             <!-- /.p-works -->
           </div>
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/hamburgerサイト実績.png" alt="スライド1" />
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド1" />
             <div class="c-works">
               <ul class="c-cworks__cat u-flex__slide-cat">
                 <li class="c-works__cat-list">WordPress</li>
@@ -229,7 +233,7 @@
             <!-- /.p-works -->
           </div>
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
             <div class="c-works">
               <ul class="c-works__cat u-flex__slide-cat">
                 <li class="c-works__cat-list">WordPress</li>
@@ -242,7 +246,7 @@
             <!-- /.p-works -->
           </div>
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/hamburgerサイト実績.png" alt="スライド1" />
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド1" />
             <div class="c-works">
               <ul class="c-cworks__cat u-flex__slide-cat">
                 <li class="c-works__cat-list">WordPress</li>
@@ -255,7 +259,7 @@
             <!-- /.p-works -->
           </div>
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
             <div class="c-works">
               <ul class="c-cworks__cat u-flex__slide-cat">
                 <li class="c-works__cat-list">WordPress</li>
@@ -288,38 +292,44 @@ $about_query = new WP_Query($args);
 
 if ($about_query->have_posts()):
   while ($about_query->have_posts()): $about_query->the_post(); ?>
-    <section class="p-about" id="about">
-      <div class="l-wrapper__about">
-        <h2 class="c-title__about tenmincho-text">私について</h2>
-        <div class="p-about__contents u-flex__about">
-          <div class="p-about__left">
-            <?php the_post_thumbnail(); ?>
-          </div>
-          <div class="p-about__right">
-            <h3 class="p-about__name"><?php the_title(); ?></h3>
-            <div class="p-about__text tenmincho-text">
-              <?php the_content(); ?>
-            </div>
-            <!-- /.p-about__text -->
-            <h4 class="p-about__sub-title">スキル</h4>
-            <ul class="p-about__skill u-flex__skill">
-              <?php
+<section class="p-about" id="about">
+  <div class="l-wrapper__about">
+    <h2 class="c-title__about tenmincho-text">私について</h2>
+    <div class="p-about__contents u-flex__about">
+      <div class="p-about__left">
+        <?php the_post_thumbnail(); ?>
+      </div>
+      <div class="p-about__right">
+        <h3 class="p-about__name"><?php the_title(); ?></h3>
+        <div class="p-about__text tenmincho-text">
+          <?php the_content(); ?>
+          <?php
+              wp_link_pages(array(
+                'before' => '<div class="page-links">ページ: ',
+                'after'  => '</div>',
+              ));
+              ?>
+        </div>
+        <!-- /.p-about__text -->
+        <h4 class="p-about__sub-title">スキル</h4>
+        <ul class="p-about__skill u-flex__skill">
+          <?php
               $categories = get_the_category();
               if (!empty($categories)) :
                 foreach ($categories as $category) : ?>
-                  <li class="p-about__skill-cat u-flex__center">
-                    <?php echo esc_html($category->name); ?>
-                  </li>
-              <?php endforeach;
+          <li class="p-about__skill-cat u-flex__center">
+            <?php echo esc_html($category->name); ?>
+          </li>
+          <?php endforeach;
               endif;
               ?>
-              <!-- /.p-about__skill -->
-            </ul>
-          </div>
-        </div>
+          <!-- /.p-about__skill -->
+        </ul>
       </div>
-      <!-- /.l-wrapper l-wrapper-about -->
-    </section>
+    </div>
+  </div>
+  <!-- /.l-wrapper l-wrapper-about -->
+</section>
 <?php endwhile;
   wp_reset_postdata();
 endif;
@@ -445,16 +455,17 @@ endif;
         </p>
         <div class="p-contact__modal-buttons u-flex__center">
           <button type="button" class="c-button__modal" id="modal-cancel">戻る</button>
-          <button type="button " class="c-button__modal" id="modal-submit">送信</button>
+          <button type="button" class="c-button__modal" id="modal-submit">送信</button>
         </div>
       </div>
     </div>
+    <?php
+    if (comments_open() || get_comments_number()) :
+      comments_template();
+    endif;
+    ?>
     <!-- /.l-wrapper__contact -->
 </section>
 <!-- /#contact.p-contact -->
 </main>
-<?php wp_footer(); ?>
-
-</body>
-
-</html>
+<?php get_footer(); ?>

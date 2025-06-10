@@ -127,53 +127,22 @@ window.addEventListener("scroll", () => {
 //contact//
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".wpcf7-form");
-
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      const requiredFields = form.querySelectorAll("[required]");
-      const allFields = form.querySelectorAll("input, textarea");
-      const errorMessage = form.querySelector(".wpcf7-response-output");
-
-      let anyInputFilled = false;
-      let hasEmptyRequired = false;
-
-      allFields.forEach((field) => {
-        if (field.value.trim() !== "") {
-          anyInputFilled = true;
-        }
-      });
-
-      requiredFields.forEach((field) => {
-        if (field.value.trim() === "") {
-          hasEmptyRequired = true;
-        }
-      });
-
-      if (anyInputFilled && hasEmptyRequired) {
-        e.preventDefault();
-        if (errorMessage) {
-          errorMessage.style.display = "block";
-          errorMessage.textContent =
-            "入力内容に問題があります。確認して再度お試しください。";
-        }
-      } else if (errorMessage) {
-        errorMessage.style.display = "none";
-      }
-    });
-  }
-});
-
-//モーダル表示//
-
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".wpcf7-form");
   const modal = document.getElementById("confirmation-modal");
   const modalSubmit = document.getElementById("modal-submit");
   const modalCancel = document.getElementById("modal-cancel");
   const trigger = document.getElementById("open-confirmation-modal");
 
+  // --- 必須項目に required 属性を強制追加 ---
+  const requiredFields = document.querySelectorAll(
+    ".wpcf7-validates-as-required"
+  );
+  requiredFields.forEach((field) => {
+    field.setAttribute("required", "required");
+  });
+
+  // --- フォームが存在しない場合は終了 ---
   if (!form) {
-    console.warn("formが見つかりません。");
+    console.warn("フォームが見つかりません。");
     return;
   }
 
@@ -184,46 +153,48 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  if (
-    !form ||
-    !modal ||
-    !modalSubmit ||
-    !modalCancel ||
-    !trigger ||
-    !realSubmitButton
-  ) {
-    console.error("必要な要素が見つかりません。");
-    return;
+  // --- モーダルの事前確認表示 ---
+  if (trigger && modal && modalSubmit && modalCancel) {
+    trigger.addEventListener("click", function () {
+      const name = form.querySelector('[name="your-name"]');
+      const kana = form.querySelector('[name="your-kana"]');
+      const email = form.querySelector('[name="your-email"]');
+      const message = form.querySelector('[name="your-message"]');
+      const acceptance = form.querySelector('[name="acceptance-415"]');
+
+      // HTML5バリデーション（モーダル前に必須確認）
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      document.getElementById("confirm-name").textContent = name.value;
+      document.getElementById("confirm-kana").textContent = kana.value;
+      document.getElementById("confirm-email").textContent = email.value;
+      document.getElementById("confirm-message").textContent = message.value;
+
+      modal.style.display = "flex";
+    });
+
+    // --- モーダルから実際に送信 ---
+    modalSubmit.addEventListener("click", function () {
+      modal.style.display = "none";
+      const realSubmit = document.getElementById("real-submit");
+      if (realSubmit) {
+        console.log("real-submit をクリックします");
+        realSubmit.click(); // ← ここで Contact Form 7 の submit ボタンをクリック
+      } else {
+        console.error("real-submit ボタンが見つかりません");
+      }
+    });
+
+    // --- モーダルキャンセル ---
+    modalCancel.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
   }
 
-  // モーダル表示
-  trigger.addEventListener("click", function () {
-    document.getElementById("confirm-name").textContent =
-      form.querySelector('[name="your-name"]').value;
-    document.getElementById("confirm-kana").textContent =
-      form.querySelector('[name="your-kana"]').value;
-    document.getElementById("confirm-email").textContent = form.querySelector(
-      '[name="your-email"]'
-    ).value;
-    document.getElementById("confirm-message").textContent = form.querySelector(
-      '[name="your-message"]'
-    ).value;
-
-    modal.style.display = "flex";
-  });
-
-  // モーダル内送信
-  modalSubmit.addEventListener("click", function () {
-    modal.style.display = "none";
-    realSubmitButton.click(); // ← 実際の送信
-  });
-
-  // キャンセル
-  modalCancel.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-
-  // 送信完了後のリダイレクト
+  // --- 送信完了後リダイレクト ---
   document.addEventListener("wpcf7mailsent", function () {
     window.location.href = "/thanks";
   });

@@ -2,18 +2,76 @@
 // テーマサポート系
 function troisterre_theme_setup()
 {
-  add_theme_support('menus');
-  add_theme_support('title-tag');
-  add_theme_support('post-thumbnails');
-
+  add_theme_support('automatic-feed-links');
   register_nav_menus(array(
-    'header-nav' => 'ヘッダーナビゲーション',
+    'header-nav' => 'ヘッダーナビゲーション'
   ));
 }
 add_action('after_setup_theme', 'troisterre_theme_setup');
+add_theme_support('title-tag');
+add_theme_support('post-thumbnails');
+add_theme_support('wp-block-styles');
+add_theme_support('sensitive-embeds');
+add_theme_support('html5', array(
+  'search-form',
+  'comment-form',
+  'comment-list',
+  'gallery',
+  'caption',
+  'style',
+  'script',
+  'navigation-widgets' // WP6.1以降対応
+));
+add_theme_support('custom-logo', array(
+  'height'      => 100, // 推奨高さ（自由に変更可能）
+  'width'       => 300, // 推奨幅
+  'flex-height' => true, // 高さの柔軟性
+  'flex-width'  => true, // 幅の柔軟性
+  'header-text' => array('site-title', 'site-description'),
+));
+add_theme_support('custom-background', array(
+  'default-color' => 'ffffff', // 背景色のデフォルト
+  'default-image' => '',       // 背景画像のデフォルト（なし）
+  'default-repeat' => 'no-repeat',
+  'default-position-x' => 'center',
+  'default-attachment' => 'scroll',
+));
+add_theme_support('align-wide');
+add_theme_support('custom-header', array(
+  'default-image'      => get_template_directory_uri() . '/img/default-header.jpg', // デフォルト画像（任意）
+  'width'              => 1200, // 推奨幅
+  'height'             => 400,  // 推奨高さ
+  'flex-width'         => true,
+  'flex-height'        => true,
+  'header-text'        => false,
+  'uploads'            => true,
+));
+function troisterre_add_editor_styles()
+{
+  add_editor_style('editor-style.css');
+}
+add_action('admin_init', 'troisterre_add_editor_styles');
 
-// 管理バー非表示
-add_filter('show_admin_bar', '__return_false');
+function troisterre_enqueue_comment_reply_script()
+{
+  if (is_singular() && comments_open() && get_option('thread_comments')) {
+    wp_enqueue_script('comment-reply');
+  }
+}
+add_action('wp_enqueue_scripts', 'troisterre_enqueue_comment_reply_script');
+
+function theme_widgets_init()
+{
+  register_sidebar([
+    'name' => 'サイドバー',
+    'id' => 'sidebar-1',
+    'before_widget' => '<div class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2 class="widgettitle">',
+    'after_title'   => '</h2>',
+  ]);
+}
+add_action('widgets_init', 'theme_widgets_init');
 
 // タイトル出力フィルター
 function troisterre_title($title)
@@ -30,9 +88,6 @@ add_filter('pre_get_document_title', 'troisterre_title');
 // スクリプトとスタイルの読み込み
 function troisterre_script()
 {
-  wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0');
-  wp_enqueue_style('adobe-fonts', 'https://use.typekit.net/aws1fii.css', array(), null);
-  wp_enqueue_style('troisterre-style', get_template_directory_uri() . '/css/troisterre.css', array(), '1.0.0');
   wp_enqueue_style('main-style', get_template_directory_uri() . '/css/main.css', array(), '1.0.0');
   wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), null);
 
@@ -54,53 +109,62 @@ function add_category_to_pages()
   register_taxonomy_for_object_type('category', 'page');
 }
 add_action('init', 'add_category_to_pages');
+add_filter('wpcf7_use_button_element', '__return_false');
 
-// reCAPTCHA Enterprise 検証
-add_filter('wpcf7_validate', 'verify_recaptcha_enterprise_token', 10, 2);
-
-function verify_recaptcha_enterprise_token($result, $tags)
+add_filter('the_content', 'add_lazyload_to_images');
+function add_lazyload_to_images($content)
 {
-  if (!isset($_POST['g-recaptcha-response'])) {
-    $result->invalidate(null, 'reCAPTCHAトークンがありません。');
-    return $result;
-  }
+  return preg_replace('/<img(.*?)src=/i', '<img$1loading="lazy" src=', $content);
+}
+function troisterre_register_block_styles()
+{
+  // 段落ブロックに「太枠」スタイルを追加
+  register_block_style(
+    'core/paragraph',
+    array(
+      'name'  => 'fancy-border',
+      'label' => '太枠',
+      'style_handle' => 'troisterre-block-style',
+    )
+  );
+}
+add_action('init', 'troisterre_register_block_styles');
 
-  $token = sanitize_text_field($_POST['g-recaptcha-response']);
-  $project_id = 'your-project-id'; // ← あなたの GCP プロジェクトIDに置き換えてください
-  $recaptcha_action = 'contact_form';
+function troisterre_enqueue_block_assets()
+{
+  wp_enqueue_style(
+    'troisterre-block-style',
+    get_template_directory_uri() . '/css/block-style.css',
+    array(),
+    '1.0.0'
+  );
+}
+add_action('enqueue_block_assets', 'troisterre_enqueue_block_assets');
 
-  $url = 'https://recaptchaenterprise.googleapis.com/v1/projects/' . $project_id . '/assessments?key=YOUR_API_KEY'; // ← Enterprise APIキーに置き換えてください
-
-  $body = json_encode([
-    'event' => [
-      'token' => $token,
-      'siteKey' => '6LdOiUYrAAAAALRt6hR4lTRDW3qwr-prFy5iGY1C',
-      'expectedAction' => $recaptcha_action,
-    ]
-  ]);
-
-  $response = wp_remote_post($url, [
-    'headers' => ['Content-Type' => 'application/json'],
-    'body' => $body,
-    'timeout' => 10,
-  ]);
-
-  if (is_wp_error($response)) {
-    $result->invalidate(null, 'reCAPTCHAサーバーとの通信に失敗しました。');
-    return $result;
-  }
-
-  $data = json_decode(wp_remote_retrieve_body($response), true);
-
-  if (empty($data['tokenProperties']['valid']) || $data['tokenProperties']['action'] !== $recaptcha_action) {
-    $result->invalidate(null, 'reCAPTCHA検証に失敗しました。もう一度お試しください。');
-    return $result;
-  }
-
-  $score = $data['riskAnalysis']['score'] ?? 0;
-  if ($score < 0.5) {
-    $result->invalidate(null, 'スパムと判定されました。');
-  }
-
-  return $result;
+function troisterre_register_block_patterns()
+{
+  register_block_pattern(
+    'kamimura_portfolio/cta-section',
+    array(
+      'title'       => 'CTAセクション',
+      'description' => '見出しとボタンを含む CTA セクションです。',
+      'content'     => '
+        <!-- wp:group {"align":"full","backgroundColor":"primary","textColor":"white","className":"cta-section","layout":{"type":"constrained"}} -->
+        <div class="wp-block-group alignfull cta-section has-white-color has-primary-background-color has-text-color has-background">
+          <!-- wp:heading {"level":2} -->
+          <h2>一緒にWebサイトを作りましょう！</h2>
+          <!-- /wp:heading -->
+          <!-- wp:buttons -->
+          <div class="wp-block-buttons">
+            <!-- wp:button -->
+            <div class="wp-block-button"><a class="wp-block-button__link">お問い合わせ</a></div>
+            <!-- /wp:button -->
+          </div>
+          <!-- /wp:buttons -->
+        </div>
+        <!-- /wp:group -->
+      ',
+      'categories'  => array('kamimura_portfolio'),
+    )
+  );
 }

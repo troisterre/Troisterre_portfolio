@@ -28,25 +28,24 @@
 
   <!-- 構造化データ（JSON-LD） -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "KAMIMURA’sポートフォリオ",
-      "image": "https://your-portfolio-url.com/logo.png",
-      "url": "https://your-portfolio-url.com",
-      "telephone": "090-1234-5678",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "渋谷区○○1-2-3",
-        "addressLocality": "渋谷区",
-        "addressRegion": "東京都",
-        "postalCode": "150-0001",
-        "addressCountry": "JP"
-      },
-      "openingHours": "Mo-Fr 10:00-18:00",
-      "priceRange": "¥¥",
-      "description": "千葉県松戸市を拠点に、SEO・MEO対策を考慮したWebコーディングを提供しています。全国対応可能。"
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "KAMIMURA'sポートフォリオ",
+    "image": "https://troisterre-kamimura.com/logo.png",
+    "url": "https://troisterre-kamimura.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "常盤平柳町10−20",
+      "addressLocality": "松戸市",
+      "addressRegion": "千葉県",
+      "postalCode": "270-2263",
+      "addressCountry": "JP"
+    },
+    "openingHours": "Mo-Fr 10:00-18:00",
+    "priceRange": "¥¥",
+    "description": "千葉県松戸市を拠点に、SEO・MEO対策を考慮したWebコーディングを提供しています。全国対応可能。"
+  }
   </script>
 
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
@@ -56,11 +55,12 @@
   <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
+  <?php wp_body_open(); ?>
   <main>
     <header class="l-header u-flex__header">
       <h1 class="l-header__title readex-pro">
-        <a href="#" class="l-header__title-link u-flex__header-title">
+        <a href="https://troisterre-kamimura.com" class="l-header__title-link u-flex__header-title">
           <div class="l-header__title-top u-flex__header-title-name">
             <div class="l-header__title-name">
               <span class="l-header__title-first">KAMIMURA</span><span class="l-header__title-small">'s</span>

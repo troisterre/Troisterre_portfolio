@@ -108,3 +108,80 @@ li {
     scroll-margin-top: 24rem;
   }
 }
+.is-style-fancy-border {
+  border: 3px solid #333;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+.wp-caption {
+  max-width: 100%;
+  margin: 1em auto;
+  text-align: center;
+}
+
+.wp-caption img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wp-caption-text {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 0.5em;
+}
+.sticky {
+  border: 2px solid #ffa500;
+  padding: 1em;
+  background-color: #fffbe6;
+}
+
+.sticky::before {
+  content: "📌注目記事";
+  display: block;
+  font-weight: bold;
+  color: #d35400;
+  margin-bottom: 0.5em;
+}
+.gallery-caption {
+  font-size: 0.85em;
+  color: #666;
+  text-align: center;
+  margin-top: 0.5em;
+}
+/* 投稿者自身のコメント */
+.bypostauthor {
+  border-left: 3px solid #0073aa;
+  background-color: #f9f9f9;
+  padding: 1em;
+}
+
+/* 画像配置用クラス */
+.alignleft {
+  float: left;
+  margin-right: 1.5em;
+  margin-bottom: 1em;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
+.screen-reader-text {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

@@ -122,7 +122,25 @@
     padding: 124rem 0 0 0;
     text-align: center;
     @include tab {
-      padding: 18.9rem 0 0 0;
+      padding: 18.9rem 0 13rem;
+      overflow-x: hidden;
+    }
+    @include pc {
+      padding: 18.9rem 0 14.3rem;
+    }
+  }
+  &__privacy {
+    width: 100%;
+    padding: 121rem 30rem;
+    @include tab {
+      width: 70%;
+      max-width: 550rem;
+      margin: 0 auto;
+      padding: 18.9rem 3rem 13rem;
+    }
+    @include pc {
+      max-width: 100rem;
+      padding: 18.9rem 5rem 13rem;
     }
   }
 }

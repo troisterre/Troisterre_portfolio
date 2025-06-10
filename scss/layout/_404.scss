@@ -3,4 +3,30 @@
 @use "../foundation/base" as *;
 .l-404 {
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 100%;
+    width: 694rem;
+    height: 694rem;
+    background-color: rgba(230, 247, 255, 1);
+    transform: translate(-24%, -90%);
+    z-index: -1;
+    @include tab {
+      width: 85rem;
+      height: 85rem;
+      top: 77%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @include pc {
+      width: 99.5rem;
+      height: 99.5rem;
+      transform: translate(-50%, -50%);
+      top: 81%;
+    }
+  }
 }

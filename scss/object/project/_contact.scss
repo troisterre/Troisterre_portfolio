@@ -214,7 +214,7 @@
   &__modal {
     display: none;
     position: fixed;
-    bottom: -43%;
+    bottom: 20%;
     left: 0;
     width: 100%;
     height: auto;
@@ -372,4 +372,10 @@ input[type="checkbox"] {
   @include pc {
     font-size: 1.6rem;
   }
+}
+.wpcf7-not-valid-tip {
+  display: block;
+  color: red;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
 }

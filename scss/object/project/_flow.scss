@@ -50,14 +50,16 @@
     }
   }
   &__item:first-child:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -0.3rem;
-    width: 1rem;
-    height: 0.7rem; // ← 必要に応じて調整
-    background-color: #fff; // 背景と同じ色にすることで、線を“隠す”
-    z-index: 2;
+    @include tab {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -0.5rem;
+      width: 10rem;
+      height: 0.7rem; // ← 必要に応じて調整
+      background-color: #fff; // 背景と同じ色にすることで、線を“隠す”
+      z-index: 2;
+    }
   }
   &__item:last-child .p-flow__item-title {
     margin-bottom: 0;
@@ -258,6 +260,7 @@
       line-height: 1.36;
       color: $color-blue;
       margin-left: -9rem;
+      letter-spacing: 0.05em;
       transform: translateX(-0.5rem);
     }
     @include pc {

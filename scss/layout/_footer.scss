@@ -1,0 +1,20 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+@use "../foundation/base" as *;
+
+.l-footer {
+  font-size: 14rem;
+  background-color: #ffffff;
+  padding: 30rem 0;
+  @include tab {
+    font-size: 1.4rem;
+    padding: 5rem 0;
+  }
+  @include pc {
+    font-size: 1.6rem;
+  }
+  & small {
+    display: block;
+    text-align: center;
+  }
+}
