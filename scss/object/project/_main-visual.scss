@@ -246,7 +246,6 @@
   &__price span {
     font-size: 20rem;
     line-height: calc(20 / 16);
-    letter-spacing: 0.05em;
     @include tab {
       font-size: 2.2rem;
       line-height: 1;

@@ -633,8 +633,12 @@ th {
   letter-spacing: 0.1em;
 }
 
-.u-ls-w-1 {
-  letter-spacing: -0.01em;
+.u-ls-m-15 {
+  letter-spacing: -0.15em;
+}
+
+.u-ls-m-6 {
+  letter-spacing: -0.06em;
 }
 
 .u-flex, .u-flex__header-title-name, .u-flex__header-title, .u-flex__header, .u-flex__column-reverse, .u-flex__label, .u-flex__contact, .u-flex__about, .u-flex__flow-subtitle, .u-flex__flow, .u-flex__skill, .u-flex__slide-cat, .u-flex__between, .u-flex__center-reverse, .u-flex__balloon, .u-flex__balloon-reverse, .u-flex__center {
@@ -1847,11 +1851,12 @@ input[type=submit].c-button__contact-none {
   color: transparent;
   border-radius: 0.1rem;
   background-color: #5075bb;
+  z-index: 10;
 }
 @media (min-width: 560px) {
   .swiper-button-next::after,
   .swiper-button-prev::after {
-    top: -65%;
+    top: -50%;
     width: 3rem;
     height: 3rem;
     color: transparent;
@@ -1874,7 +1879,7 @@ input[type=submit].c-button__contact-none {
 }
 
 .swiper-button-next::after {
-  right: -120%;
+  right: -100%;
   clip-path: polygon(0 0, 70% 50%, 0 100%);
 }
 @media (min-width: 560px) {
@@ -1884,7 +1889,7 @@ input[type=submit].c-button__contact-none {
 }
 
 .swiper-button-prev::after {
-  left: -200%;
+  left: -140%;
   clip-path: polygon(0 0, 70% 50%, 0 100%);
   transform: rotate(180deg);
 }
@@ -2649,7 +2654,6 @@ input[type=submit].c-button__contact-none {
 .p-main-visual__price span {
   font-size: 20rem;
   line-height: 1.25;
-  letter-spacing: 0.05em;
 }
 @media (min-width: 560px) {
   .p-main-visual__price span {

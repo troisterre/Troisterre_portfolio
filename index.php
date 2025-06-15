@@ -11,7 +11,8 @@
       さらにマーケティング視点で、ただ作るだけではなく<br />伝えたいことが「伝わる」Webサイトを実装
     </p>
     <p class="p-main-visual__price">
-      <span class="u-bold">1P制作：10,000円～</span><br />※詳しくは価格ページをご覧ください。
+      <span class="u-bold"><span class="u-ls-m-6">1P制作：</span><span class="u-ls-m-15">10</span><span
+          class="u-ls-m-6">,000円～</span></span><br />※詳しくは価格ページをご覧ください。
     </p>
     <p class="p-main-visual__contact">制作のご相談はこちら</p>
     <a class="c-button__mv" href="#contact">
@@ -175,107 +176,39 @@
     <div class="swiper-container">
       <div class="swiper js-work-slider">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <?php
-            if (have_posts()):
-              while (have_posts()):
-                the_post(); ?>
-            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-              <?php the_post_thumbnail(); ?>
-              <ul class="c-works__cat u-flex__slide-cat">
-                <?php
+          <?php if (have_posts()) : ?>
+            <?php while (have_posts()) : the_post(); ?>
+              <div class="swiper-slide">
+                <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                  <?php the_post_thumbnail(); ?>
+                  <ul class="c-works__cat u-flex__slide-cat">
+                    <?php
                     $categories = get_the_category();
                     if (!empty($categories)) :
                       foreach ($categories as $category) : ?>
-                <li class="c-works__cat-list">
-                  <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
-                    <?php echo esc_html($category->name); ?>
-                  </a>
-                </li>
-                <?php endforeach;
+                        <li class="c-works__cat-list">
+                          <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
+                            <?php echo esc_html($category->name); ?>
+                          </a>
+                        </li>
+                    <?php endforeach;
                     endif;
                     ?>
-              </ul>
-              <h4 class="c-works__cat-title"><?php the_title(); ?></h4>
-              <!-- /.p-works__cat-title -->
-              <?php the_tags('<ul class="tags"><li>', '</li><li>', '</li></ul>'); ?>
-            </div>
-            <!-- /.p-works -->
-            <?php endwhile;
-            else: ?>
+                  </ul>
+                  <h4 class="c-works__cat-title"><?php the_title(); ?></h4>
+                  <?php the_tags('<ul class="tags"><li>', '</li><li>', '</li></ul>'); ?>
+                </div>
+              </div>
+            <?php endwhile; ?>
+          <?php else : ?>
             <p>表示する制作物はありません</p>
-            <?php endif; ?>
-          </div>
-          <div class="swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
-            <div class="c-works">
-              <ul class="c-cworks__cat u-flex__slide-cat">
-                <li class="c-works__cat-list">WordPress</li>
-                <li class="c-works__cat-list">JavaScript</li>
-                <!-- /.p-works__cat-list -->
-              </ul>
-              <h4 class="c-works__cat-title">RaiseTech課題</h4>
-              <!-- /.p-works__cat-title -->
-            </div>
-            <!-- /.p-works -->
-          </div>
-          <div class="swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド1" />
-            <div class="c-works">
-              <ul class="c-cworks__cat u-flex__slide-cat">
-                <li class="c-works__cat-list">WordPress</li>
-                <li class="c-works__cat-list">JavaScript</li>
-                <!-- /.p-works__cat-list -->
-              </ul>
-              <h4 class="c-works__cat-title">RaiseTech課題</h4>
-              <!-- /.p-works__cat-title -->
-            </div>
-            <!-- /.p-works -->
-          </div>
-          <div class="swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
-            <div class="c-works">
-              <ul class="c-works__cat u-flex__slide-cat">
-                <li class="c-works__cat-list">WordPress</li>
-                <li class="c-works__cat-list">JavaScript</li>
-                <!-- /.p-works__cat-list -->
-              </ul>
-              <h4 class="c-works__cat-title">RaiseTech課題</h4>
-              <!-- /.p-works__cat-title -->
-            </div>
-            <!-- /.p-works -->
-          </div>
-          <div class="swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド1" />
-            <div class="c-works">
-              <ul class="c-cworks__cat u-flex__slide-cat">
-                <li class="c-works__cat-list">WordPress</li>
-                <li class="c-works__cat-list">JavaScript</li>
-                <!-- /.p-works__cat-list -->
-              </ul>
-              <h4 class="c-works__cat-title">RaiseTech課題</h4>
-              <!-- /.p-works__cat-title -->
-            </div>
-            <!-- /.p-works -->
-          </div>
-          <div class="swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hamburgerサイト実績.png" alt="スライド2" />
-            <div class="c-works">
-              <ul class="c-cworks__cat u-flex__slide-cat">
-                <li class="c-works__cat-list">WordPress</li>
-                <li class="c-works__cat-list">JavaScript</li>
-                <!-- /.p-works__cat-list -->
-              </ul>
-              <h4 class="c-works__cat-title">RaiseTech課題</h4>
-              <!-- /.p-works__cat-title -->
-            </div>
-            <!-- /.p-works -->
-          </div>
-        </div>
-      </div>
+          <?php endif; ?>
+        </div><!-- /.swiper-wrapper -->
+      </div><!-- /.swiper -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-    </div>
+    </div><!-- /.swiper-container -->
+
   </div>
   <!-- /.swiper-wrapper -->
   <!-- /.swiper-container -->
@@ -292,44 +225,44 @@ $about_query = new WP_Query($args);
 
 if ($about_query->have_posts()):
   while ($about_query->have_posts()): $about_query->the_post(); ?>
-<section class="p-about" id="about">
-  <div class="l-wrapper__about">
-    <h2 class="c-title__about tenmincho-text">私について</h2>
-    <div class="p-about__contents u-flex__about">
-      <div class="p-about__left">
-        <?php the_post_thumbnail(); ?>
-      </div>
-      <div class="p-about__right">
-        <h3 class="p-about__name"><?php the_title(); ?></h3>
-        <div class="p-about__text tenmincho-text">
-          <?php the_content(); ?>
-          <?php
+    <section class="p-about" id="about">
+      <div class="l-wrapper__about">
+        <h2 class="c-title__about tenmincho-text">私について</h2>
+        <div class="p-about__contents u-flex__about">
+          <div class="p-about__left">
+            <?php the_post_thumbnail(); ?>
+          </div>
+          <div class="p-about__right">
+            <h3 class="p-about__name"><?php the_title(); ?></h3>
+            <div class="p-about__text tenmincho-text">
+              <?php the_content(); ?>
+              <?php
               wp_link_pages(array(
                 'before' => '<div class="page-links">ページ: ',
                 'after'  => '</div>',
               ));
               ?>
-        </div>
-        <!-- /.p-about__text -->
-        <h4 class="p-about__sub-title">スキル</h4>
-        <ul class="p-about__skill u-flex__skill">
-          <?php
+            </div>
+            <!-- /.p-about__text -->
+            <h4 class="p-about__sub-title">スキル</h4>
+            <ul class="p-about__skill u-flex__skill">
+              <?php
               $categories = get_the_category();
               if (!empty($categories)) :
                 foreach ($categories as $category) : ?>
-          <li class="p-about__skill-cat u-flex__center">
-            <?php echo esc_html($category->name); ?>
-          </li>
-          <?php endforeach;
+                  <li class="p-about__skill-cat u-flex__center">
+                    <?php echo esc_html($category->name); ?>
+                  </li>
+              <?php endforeach;
               endif;
               ?>
-          <!-- /.p-about__skill -->
-        </ul>
+              <!-- /.p-about__skill -->
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <!-- /.l-wrapper l-wrapper-about -->
-</section>
+      <!-- /.l-wrapper l-wrapper-about -->
+    </section>
 <?php endwhile;
   wp_reset_postdata();
 endif;

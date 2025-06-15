@@ -86,8 +86,9 @@
   color: transparent;
   border-radius: 0.1rem;
   background-color: $color-blue;
+  z-index: 10;
   @include tab {
-    top: -65%;
+    top: -50%;
     width: 3rem;
     height: 3rem;
     color: transparent;
@@ -106,14 +107,14 @@
   }
 }
 .swiper-button-next::after {
-  right: -120%;
+  right: -100%;
   clip-path: polygon(0 0, 70% 50%, 0 100%);
   @include tab {
     right: -170%;
   }
 }
 .swiper-button-prev::after {
-  left: -200%;
+  left: -140%;
   clip-path: polygon(0 0, 70% 50%, 0 100%);
   transform: rotate(180deg);
   @include tab {
