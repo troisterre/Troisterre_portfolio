@@ -51,6 +51,8 @@
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
 
+
+
   <!-- head内 -->
   <?php wp_head(); ?>
 </head>

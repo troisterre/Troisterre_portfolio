@@ -168,3 +168,61 @@ function troisterre_register_block_patterns()
     )
   );
 }
+add_action('wpcf7_before_send_mail', 'verify_recaptcha_token_cf7');
+
+function verify_recaptcha_token_cf7($contact_form)
+{
+  if (!class_exists('WPCF7_Submission')) {
+    return;
+  }
+
+  $submission = WPCF7_Submission::get_instance();
+  if (!$submission) {
+    return;
+  }
+
+  $posted_data = $submission->get_posted_data();
+  $token = $posted_data['g-recaptcha-token'] ?? '';
+
+  if (!$token) {
+    $contact_form->skip_mail = true;
+    $submission->set_response('reCAPTCHAトークンがありません。');
+    return;
+  }
+
+
+  $site_key = '6LfohlorAAAAAFUItC8DmamUfa7Vthqjt0ro42UC';
+  $project_id = 'engaged-list-460405-g2';
+  $api_key = 'AIzaSyCXXHVRYaRrSDecrCUfv8ekiqwoej5g1cA'; // Cloud Consoleで取得したAPIキー
+
+  $url = "https://recaptchaenterprise.googleapis.com/v1/projects/{$project_id}/assessments?key={$api_key}";
+
+  $body = json_encode([
+    'event' => [
+      'token' => $token,
+      'siteKey' => $site_key,
+      'expectedAction' => 'contact'
+    ]
+  ]);
+
+  $response = wp_remote_post($url, [
+    'headers' => ['Content-Type' => 'application/json'],
+    'body' => $body,
+    'timeout' => 10,
+  ]);
+
+  if (is_wp_error($response)) {
+    $contact_form->skip_mail = true;
+    $submission->set_response('reCAPTCHA通信エラー');
+    return;
+  }
+
+  $data = json_decode(wp_remote_retrieve_body($response), true);
+  $score = $data['riskAnalysis']['score'] ?? 0;
+  $reason = $data['riskAnalysis']['reasons'][0] ?? '';
+
+  if ($score < 0.5) {
+    $contact_form->skip_mail = true;
+    $submission->set_response('スパムと判断されました（スコア: ' . $score . ' 理由: ' . $reason . '）');
+  }
+}

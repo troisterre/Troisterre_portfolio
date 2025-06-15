@@ -372,6 +372,30 @@ endif;
     <h2 class="c-title__contact tenmincho-text">お問い合わせ</h2>
     <!-- /.c-section__title -->
     <?php echo do_shortcode('[contact-form-7 id="ef59f26" title="ポートフォリオお問い合わせフォーム"]'); ?>
+    <!-- CF7ショートコードの直後などに貼り付け -->
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LccOUcrAAAAAGfBa2IBr0it1pfLdx_VbLavcaKg">
+    </script>
+    <script>
+      document.addEventListener('wpcf7submit', function(event) {
+        // フォーム送信時にはまだトークン未取得なので、submit をキャンセル
+        event.preventDefault();
+
+        grecaptcha.enterprise.ready(function() {
+          grecaptcha.enterprise.execute('6LccOUcrAAAAAGfBa2IBr0it1pfLdx_VbLavcaKg', {
+            action: 'contact'
+          }).then(function(token) {
+            // トークンを hidden にセット
+            const form = event.target;
+            form.querySelector('[name="g-recaptcha-token"]').value = token;
+            // トークンがセットされたら再送信
+            form.submit();
+          });
+        });
+      }, true);
+    </script>
+
+    <!-- CF7フォーム内に hidden フィールドを設置 -->
+    [hidden g-recaptcha-token id:g-recaptcha-token]
     <div class="c-button__contact-wrapper">
       <input type="button" id="open-confirmation-modal" value="送信"
         class="wpcf7-form-control wpcf7-submit has-spinner c-button__contact">
