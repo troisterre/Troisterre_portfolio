@@ -91,7 +91,13 @@ function troisterre_script()
   wp_enqueue_style('main-style', get_template_directory_uri() . '/css/main.css', array(), '1.0.0');
   wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), null);
 
-  wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);
+  wp_enqueue_script(
+    'troisterre-contact-js',
+    get_template_directory_uri() . '/js/main.js',
+    array(), // 依存関係を空にする
+    null,
+    true
+  );
   wp_enqueue_script(
     'troisterre-contact-js',
     get_template_directory_uri() . '/js/main.js',
