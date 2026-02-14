@@ -88,24 +88,23 @@ add_filter('pre_get_document_title', 'troisterre_title');
 // スクリプトとスタイルの読み込み
 function troisterre_script()
 {
+  // 1. スタイルシート
   wp_enqueue_style('main-style', get_template_directory_uri() . '/css/main.css', array(), '1.0.0');
   wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), null);
 
+  // 2. Swiper本体（先に読み込む）
+  wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);
+
+  // 3. 自作のJS（SwiperとjQueryに依存させる）
   wp_enqueue_script(
-    'troisterre-contact-js',
+    'main-js',
     get_template_directory_uri() . '/js/main.js',
-    array(), // 依存関係を空にする
-    null,
+    array('jquery', 'swiper-js'), // swiper-jsが終わってから読み込むよう指定
+    '1.0.0',
     true
   );
-  wp_enqueue_script(
-    'troisterre-contact-js',
-    get_template_directory_uri() . '/js/main.js',
-    array('recaptcha-enterprise'), // ← ここで依存関係を指定
-    null,
-    true
-  );
-  wp_enqueue_script('main-js', get_template_directory_uri() . '/js/main.js', array(), '1.0.0', true);
+
+  // ※ troisterre-contact-js の記述は削除（main-jsと中身が同じなため）
 }
 add_action('wp_enqueue_scripts', 'troisterre_script');
 
