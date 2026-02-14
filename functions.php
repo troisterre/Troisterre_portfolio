@@ -88,26 +88,23 @@ add_filter('pre_get_document_title', 'troisterre_title');
 // スクリプトとスタイルの読み込み
 function troisterre_script()
 {
-  // 1. スタイルシート
+  // CSS
   wp_enqueue_style('main-style', get_template_directory_uri() . '/css/main.css', array(), '1.0.0');
   wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), null);
 
-  // 2. Swiper本体（先に読み込む）
+  // JS (読み込み順：Swiper本体 -> 自作JS)
   wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);
 
-  // 3. 自作のJS（SwiperとjQueryに依存させる）
+  // ここで 'main-js' というハンドル名に統一し、依存関係に 'swiper-js' を指定します
   wp_enqueue_script(
     'main-js',
     get_template_directory_uri() . '/js/main.js',
-    array('jquery', 'swiper-js'), // swiper-jsが終わってから読み込むよう指定
-    '1.0.0',
+    array('swiper-js'),
+    '1.0.1',
     true
   );
-
-  // ※ troisterre-contact-js の記述は削除（main-jsと中身が同じなため）
 }
 add_action('wp_enqueue_scripts', 'troisterre_script');
-
 // 固定ページにカテゴリを追加
 function add_category_to_pages()
 {
@@ -139,7 +136,7 @@ function troisterre_enqueue_block_assets()
 {
   wp_enqueue_style(
     'troisterre-block-style',
-    get_template_directory_uri() . '/css/block-style.css',
+    get_template_directory_uri() . '/css/main.css',
     array(),
     '1.0.0'
   );

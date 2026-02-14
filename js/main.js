@@ -65,28 +65,33 @@ type();`;
   type(); // 開始！
 });
 document.addEventListener("DOMContentLoaded", () => {
-  new Swiper(".js-main-slider", {
-    loop: true,
-    autoplay: {
-      delay: 3000,
-    },
-    effect: "fade",
-    speed: 3000,
-  });
-  new Swiper(".js-work-slider", {
-    loop: true,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    slidesPerView: 1,
-    breakpoints: {
-      560: {
-        slidesPerView: 2,
-      },
-    },
-  });
+  try {
+    if (document.querySelector(".js-main-slider")) {
+      new Swiper(".js-main-slider", {
+        loop: true,
+        autoplay: { delay: 3000 },
+        effect: "fade",
+        speed: 3000,
+      });
+    }
+
+    if (document.querySelector(".js-work-slider")) {
+      new Swiper(".js-work-slider", {
+        loop: true,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        slidesPerView: 1,
+        breakpoints: {
+          560: { slidesPerView: 2 },
+        },
+      });
+    }
+  } catch (e) {
+    console.error("Swiperの初期化に失敗しました:", e);
+  }
 });
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".js-hamburger");
